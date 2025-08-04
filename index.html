@@ -116,46 +116,88 @@
         </span>
       </div>
 
-      <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a 
-          href="#contact" 
-          class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-md font-semibold transform hover:scale-105 transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300"
-        >
-          Hire Me
-        </a>
-        <a 
-          href="#services" 
-          class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-md font-semibold transform hover:scale-105 transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300"
-        >
-          Explore Services
-        </a>
-        <a 
-          href="#portfolio" 
-          class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-md font-semibold transform hover:scale-105 transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300"
-        >
-          Portfolio
-        </a>
-      </div>
+<!-- Ultra-Polished CTA Section (Dark Blue Luxe Style) -->
+<div class="flex flex-col sm:flex-row sm:justify-center gap-4 mt-12 motion-safe:animate-fadeInUp motion-safe:delay-200">
+
+  <!-- Hire Me Button -->
+  <a 
+    href="#contact"
+    class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl
+           bg-gradient-to-br from-[#0b1d35] via-[#0e2c4a] to-[#123860]
+           text-white text-base font-semibold
+           shadow-[0_8px_30px_-5px_rgba(10,60,140,0.4)]
+           hover:shadow-[0_12px_35px_-4px_rgba(50,100,255,0.5)]
+           hover:brightness-110 hover:-translate-y-[3px]
+           transition-all duration-300 ease-out transform group
+           focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1e40af]"
+  >
+    <svg class="w-5 h-5 opacity-80 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.257a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.659z" />
+      <circle cx="12" cy="12" r="9" stroke="currentColor" />
+    </svg>
+    Hire Me
+  </a>
+
+  <!-- Explore Services Button -->
+  <a 
+    href="#services"
+    class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl
+           bg-gradient-to-br from-[#0d233f] via-[#123458] to-[#164574]
+           text-white text-base font-semibold
+           shadow-[0_8px_30px_-5px_rgba(20,60,130,0.4)]
+           hover:shadow-[0_12px_35px_-4px_rgba(40,120,255,0.5)]
+           hover:brightness-110 hover:-translate-y-[3px]
+           transition-all duration-300 ease-out transform group
+           focus:outline-none focus-visible:ring-4 focus-visible:ring-[#2563eb]"
+  >
+    <svg class="w-5 h-5 opacity-80 transition-transform duration-300 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4H8l5-5 5 5h-4v4z" />
+    </svg>
+    Explore Services
+  </a>
+
+  <!-- Download CV Button -->
+  <a 
+    href="assets/files/cv.pdf"
+    download
+    class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl
+           bg-gradient-to-br from-[#0c203a] via-[#112e52] to-[#1a3f6f]
+           text-white text-base font-semibold
+           shadow-[0_8px_30px_-5px_rgba(15,50,120,0.4)]
+           hover:shadow-[0_12px_35px_-4px_rgba(30,80,200,0.5)]
+           hover:brightness-110 hover:-translate-y-[3px]
+           transition-all duration-300 ease-out transform group
+           focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1e3a8a]"
+  >
+    <svg class="w-5 h-5 opacity-80 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+    </svg>
+    Download CV
+  </a>
+
+</div>
+
+
+
+
+
     </div>
 
-<!-- Professional Image Block -->
-<div class="flex justify-center motion-safe:animate-fadeIn motion-safe:delay-300">
-  <div class="relative w-72 h-auto rounded-xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+<!-- Professional Image Block: Soft Edges, No Border, No Background -->
+<section aria-labelledby="profile-heading" class="flex justify-center items-center px-4 py-8 motion-safe:animate-fadeIn motion-safe:delay-300">
+  <figure class="relative w-72 sm:w-80 md:w-96 rounded-2xl overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-2xl">
     
-    <!-- Image with better framing and presentation -->
+    <!-- Professional Image -->
     <img 
       src="assets/profile.png" 
       alt="Professional headshot of Mohamed El-Mansy, AI Consultant" 
-      class="w-full h-auto object-cover transition duration-700 ease-in-out "
+      class="w-full h-auto object-cover transition-transform duration-700 ease-in-out hover:scale-105"
       loading="lazy"
     />
 
-    <!-- Name and Title Overlay (Optional) -->
-    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent text-white text-center px-4 py-3">
-    </div>
-  </div>
-</div>
+  </figure>
+</section>
+
 
   </div>
 </section>
