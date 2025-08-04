@@ -777,28 +777,41 @@
 </section>
 
 
-    <!-- Contact -->
-    <section id="contact" class="py-20 bg-blue-50 dark:bg-gray-950 text-center">
-      <div class="max-w-xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-6">Let’s Talk Training</h2>
-        <p class="mb-6 text-lg">Book a session or ask for a custom course plan.</p>
-        <button id="openModal" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded shadow">Open Contact Form</button>
-      </div>
-    </section>
+<!-- Contact -->
+<section id="contact" class="py-24 bg-blue-50 dark:bg-gray-950 text-center">
+  <div class="max-w-xl mx-auto px-6">
+    <h2 class="text-4xl font-extrabold text-gray-800 dark:text-white mb-6">Let’s Talk Training</h2>
+    <p class="mb-8 text-lg text-gray-700 dark:text-gray-300">Book a session or ask for a custom course plan.</p>
 
-    <!-- Modal -->
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg max-w-md w-full relative">
-        <button id="closeModal" class="absolute top-3 right-4 text-gray-500 hover:text-red-600 text-xl">×</button>
-        <h3 class="text-xl font-bold mb-4">Send a Message</h3>
-        <form class="space-y-4">
-          <input type="text" placeholder="Your Name" required class="w-full p-3 rounded border border-gray-300 dark:border-gray-600" />
-          <input type="email" placeholder="Your Email" required class="w-full p-3 rounded border border-gray-300 dark:border-gray-600" />
-          <textarea placeholder="Your Message" required class="w-full p-3 rounded border border-gray-300 dark:border-gray-600 h-28"></textarea>
-          <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Send Message</button>
-        </form>
-      </div>
+    <!-- Contact Buttons -->
+    <div class="flex justify-center gap-6 flex-wrap mb-8">
+      <a href="https://wa.me/yourwhatsapplink" target="_blank" class="contact-icon bg-green-500 hover:bg-green-600">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="mailto:your@email.com" class="contact-icon bg-red-500 hover:bg-red-600">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="contact-icon bg-blue-700 hover:bg-blue-800">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.credly.com/users/yourprofile" target="_blank" class="contact-icon bg-yellow-500 hover:bg-yellow-600">
+        <img src="assets/icons/credly.svg" alt="Credly" class="w-5 h-5">
+      </a>
+      <a href="https://www.facebook.com/yourpage" target="_blank" class="contact-icon bg-blue-600 hover:bg-blue-700">
+        <i class="fab fa-facebook-f"></i>
+      </a>
     </div>
+
+    <button id="openModal" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow">
+      Open Contact Form
+    </button>
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+  <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl max-w-md w-full relative
+
 
     <!-- Scroll to top -->
     <button id="scrollTopBtn" class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow hidden">↑</button>
