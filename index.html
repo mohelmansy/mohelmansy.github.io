@@ -968,383 +968,274 @@ s
 <!-- CERTIFICATIONS -->
 <section id="certifications" class="mb-20">
   <!-- Header -->
-  <header class="mb-6 flex items-end justify-between gap-4">
-    <div>
-      <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white relative inline-block">
-        Certifications
-        <span class="absolute -bottom-2 left-0 h-1 w-28 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 rounded"></span>
-      </h3>
-      <p class="mt-4 text-sm text-gray-600 dark:text-gray-300">
-        Filter by domain, search titles/issuers, sort by year, and switch grid/list views.
-      </p>
-    </div>
-
-    <!-- Count badge (auto-updates) -->
-    <span id="certCount" class="shrink-0 inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-200">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M5 4h14v2H5zM5 9h14v2H5zM5 14h14v2H5zM5 19h14v2H5z"/></svg>
-      <span>0 items</span>
-    </span>
+  <header class="mb-10">
+    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white relative inline-block">
+      Certifications
+      <span class="absolute -bottom-2 left-0 h-1 w-28 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 rounded"></span>
+    </h3>
+    <p class="mt-4 text-sm text-gray-600 dark:text-gray-300">
+      A curated selection of professional certifications grouped by domain. Hover or focus items for issuer & date.
+    </p>
   </header>
 
-  <!-- Toolbar -->
-  <div class="mb-8 flex flex-col lg:flex-row gap-3 lg:items-center">
-    <div class="flex-1 flex gap-3">
-      <!-- Search -->
-      <label class="relative w-full">
-        <input id="certSearch" type="search" placeholder="Search title, issuer, skill…"
-               class="w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 px-10 py-2.5 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
-        <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 1 0 14 15.5l.27.28v.79L20 21.5 21.5 20l-6-6ZM6.5 11A4.5 4.5 0 1 1 11 15.5 4.505 4.505 0 0 1 6.5 11Z"/></svg>
-      </label>
+  <!-- Cards Grid -->
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-      <!-- Sort -->
-      <label class="relative">
-        <select id="certSort" class="rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 px-3 py-2.5 text-sm text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-          <option value="desc">Newest first</option>
-          <option value="asc">Oldest first</option>
-          <option value="alpha">A → Z</option>
-        </select>
-      </label>
-    </div>
+    <!-- AI & Data Science -->
+    <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-6 shadow-sm hover:shadow-lg transition-all">
+      <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500"></div>
 
-    <!-- Domain Filters -->
-    <div class="flex flex-wrap gap-2">
-      <button data-filter="all" class="cert-chip active">All</button>
-      <button data-filter="ai-data" class="cert-chip">AI & Data</button>
-      <button data-filter="devops" class="cert-chip">DevOps</button>
-      <button data-filter="cloud-sec" class="cert-chip">Cloud/Security</button>
-      <button data-filter="leadership" class="cert-chip">Leadership</button>
-      <button data-filter="water" class="cert-chip">Water/Utilities</button>
-      <button data-filter="pm" class="cert-chip">Project Mgmt</button>
-    </div>
+      <header class="flex items-center gap-3 mb-5">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-yellow-100 dark:bg-yellow-900/40">
+          <!-- brain icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-700 dark:text-yellow-300" viewBox="0 0 24 24" fill="currentColor"><path d="M8 6a3 3 0 0 0-3 3v.5A2.5 2.5 0 0 0 7.5 12H8v6a2 2 0 1 0 4 0v-1h1a3 3 0 1 0 0-6h-1V7a1 1 0 1 0-2 0v1H9a2 2 0 0 0-1-2Zm8 0a3 3 0 0 1 3 3v.5A2.5 2.5 0 0 1 16.5 12H16v6a2 2 0 1 1-4 0v-1h-1a3 3 0 1 1 0-6h1V7a1 1 0 1 1 2 0v1h1a2 2 0 0 1 1-2Z"/></svg>
+        </div>
+        <h4 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-yellow-600 transition-colors">
+          AI &amp; Data Science
+        </h4>
+      </header>
 
-    <!-- View toggle -->
-    <div class="flex items-center gap-2">
-      <button id="viewGrid" class="view-btn active" title="Grid view" aria-label="Grid view">
-        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z"/></svg>
-      </button>
-      <button id="viewList" class="view-btn" title="List view" aria-label="List view">
-        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16v3H4zm0 5h16v3H4zm0 5h16v3H4z"/></svg>
-      </button>
-    </div>
+      <!-- list -->
+      <ul role="list" class="divide-y divide-gray-100 dark:divide-white/10">
+        <!-- item -->
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Programming with Python
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">OpenEDG Python Institute</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            AI for Managers
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">Microsoft</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Data Engineering Foundations Professional
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">Astronomer</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg:white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Data Science Professional
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">KNIME</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Microsoft Azure AI Essentials
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">Microsoft</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Artificial Intelligence Career Essentials
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">ALX Africa</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Artificial Intelligence Fundamentals
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">IBM</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Artificial Intelligence Fundamentals with Capstone Project
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">IBM</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Big Data Foundations – Level 1
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">IBM</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Data Fundamentals
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">IBM</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Data Visualization Using Python
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">IBM</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Hadoop Foundations – Level 1
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">IBM</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Modern AI
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">Cisco Networking Academy</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Python for Data Science
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">IBM</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+
+        <!-- 2024 -->
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Data Science
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">ALX Africa</span>
+          </div>
+          <time datetime="2024" class="text-xs text-gray-500 dark:text-gray-400">2024</time>
+        </li>
+        <li class="flex items-start justify-between gap-3 py-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md px-2 transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Data Science &amp; Analytics
+            <span class="ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">HP LIFE</span>
+          </div>
+          <time datetime="2024" class="text-xs text-gray-500 dark:text-gray-400">2024</time>
+        </li>
+      </ul>
+    </article>
+
+    <!-- Water Sector & Utilities -->
+    <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-6 shadow-sm hover:shadow-lg transition-all">
+      <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-500"></div>
+
+      <header class="flex items-center gap-3 mb-5">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 dark:bg-sky-900/40">
+          <!-- water drop icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-700 dark:text-sky-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69 7.05 8.3A7 7 0 1 0 19 14a6.94 6.94 0 0 0-1.8-4.69Z"/></svg>
+        </div>
+        <h4 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-sky-600 transition-colors">
+          Water Sector &amp; Utilities
+        </h4>
+      </header>
+
+      <ul role="list" class="divide-y divide-gray-100 dark:divide-white/10">
+        <li class="flex items-start justify-between gap-3 py-2 px-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Enhancing Sustainable Water Utilities
+            <span class="ml-2 text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">Netherlands</span>
+          </div>
+          <time datetime="2023" class="text-xs text-gray-500 dark:text-gray-400">2023</time>
+        </li>
+        <li class="flex items-start justify-between gap-3 py-2 px-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            NRW &amp; Leakage Control (B)
+            <span class="ml-2 text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">Japan</span>
+          </div>
+          <time datetime="2017" class="text-xs text-gray-500 dark:text-gray-400">2017</time>
+        </li>
+        <li class="flex items-start justify-between gap-3 py-2 px-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Water Plant &amp; Network Operation
+            <span class="ml-2 text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">Egypt</span>
+          </div>
+          <time datetime="2018" class="text-xs text-gray-500 dark:text-gray-400">2018</time>
+        </li>
+        <li class="flex items-start justify-between gap-3 py-2 px-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Chlorine Safety Training
+            <span class="ml-2 text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">Egypt</span>
+          </div>
+          <time datetime="2018" class="text-xs text-gray-500 dark:text-gray-400">2018</time>
+        </li>
+        <li class="flex items-start justify-between gap-3 py-2 px-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Electrical Systems (Boards, Cables, Transformers, Motors)
+            <span class="ml-2 text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">Egypt</span>
+          </div>
+          <span class="text-xs text-gray-500 dark:text-gray-400">2012–2014</span>
+        </li>
+        <li class="flex items-start justify-between gap-3 py-2 px-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Water Meter Installation &amp; Calibration (METROTEC)
+            <span class="ml-2 text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">Egypt</span>
+          </div>
+          <time datetime="2012" class="text-xs text-gray-500 dark:text-gray-400">2012</time>
+        </li>
+      </ul>
+    </article>
+
+    <!-- Project Management -->
+    <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-6 shadow-sm hover:shadow-lg transition-all">
+      <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-green-500"></div>
+
+      <header class="flex items-center gap-3 mb-5">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/40">
+          <!-- tasks icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-700 dark:text-emerald-300" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4h10a2 2 0 0 1 2 2v2H5V6a2 2 0 0 1 2-2Zm-2 6h14v8a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-8Zm3 2v2h8v-2H8Z"/></svg>
+        </div>
+        <h4 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-emerald-600 transition-colors">
+          Project Management
+        </h4>
+      </header>
+
+      <ul role="list" class="divide-y divide-gray-100 dark:divide-white/10">
+        <li class="flex items-start justify-between gap-3 py-2 px-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Project Management Fundamentals
+            <span class="ml-2 text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">IBM</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+        <li class="flex items-start justify-between gap-3 py-2 px-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            PMP Exam Preparation
+            <span class="ml-2 text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">PM-Tricks (KSA)</span>
+          </div>
+          <time datetime="2024" class="text-xs text-gray-500 dark:text-gray-400">2024</time>
+        </li>
+        <li class="flex items-start justify-between gap-3 py-2 px-2 hover:bg-gray-50 dark:hover:bg-white/5 rounded-md transition">
+          <div class="text-sm text-gray-900 dark:text-gray-100">
+            Career Essentials in Project Management
+            <span class="ml-2 text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300">Microsoft</span>
+          </div>
+          <time datetime="2025" class="text-xs text-gray-500 dark:text-gray-400">2025</time>
+        </li>
+      </ul>
+    </article>
   </div>
 
-  <!-- Cards Grid/List -->
-  <div id="certGrid" class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 transition-all">
-
-    <!-- ===== AI & Data Science ===== -->
-    <article class="cert-card" data-domain="ai-data" data-year="2025" data-issuer="OpenEDG Python Institute" data-skills="python programming">
-      <div class="cert-accent from-yellow-500 via-amber-500 to-orange-500"></div>
-      <header class="cert-card-header">
-        <div class="cert-icon bg-yellow-100 dark:bg-yellow-900/40">
-          <svg class="h-5 w-5 text-yellow-700 dark:text-yellow-300" viewBox="0 0 24 24" fill="currentColor"><path d="M8 6a3 3 0 0 0-3 3v.5A2.5 2.5 0 0 0 7.5 12H8v6a2 2 0 1 0 4 0v-1h1a3 3 0 1 0 0-6h-1V7a1 1 0 1 0-2 0v1H9a2 2 0 0 0-1-2Z"/></svg>
-        </div>
-        <h4 class="cert-title">Programming with Python</h4>
-      </header>
-
-      <ul class="cert-meta">
-        <li><span class="meta-label">Issuer</span><span class="meta-value">OpenEDG Python Institute</span></li>
-        <li><span class="meta-label">Year</span><time datetime="2025" class="meta-value">2025</time></li>
-      </ul>
-
-      <div class="cert-badges">
-        <span class="badge">AI &amp; Data</span>
-        <a href="#" class="badge badge-link" aria-label="View credential (placeholder)">Verified</a>
-      </div>
-    </article>
-
-    <article class="cert-card" data-domain="ai-data" data-year="2025" data-issuer="Microsoft" data-skills="ai management">
-      <div class="cert-accent from-yellow-500 via-amber-500 to-orange-500"></div>
-      <header class="cert-card-header">
-        <div class="cert-icon bg-yellow-100 dark:bg-yellow-900/40">
-          <svg class="h-5 w-5 text-yellow-700 dark:text-yellow-300" viewBox="0 0 24 24" fill="currentColor"><path d="M8 6a3 3 0 0 0-3 3v.5A2.5 2.5 0 0 0 7.5 12H8v6a2 2 0 1 0 4 0v-1h1a3 3 0 1 0 0-6h-1V7a1 1 0 1 0-2 0v1H9a2 2 0 0 0-1-2Z"/></svg>
-        </div>
-        <h4 class="cert-title">AI for Managers</h4>
-      </header>
-      <ul class="cert-meta">
-        <li><span class="meta-label">Issuer</span><span class="meta-value">Microsoft</span></li>
-        <li><span class="meta-label">Year</span><time datetime="2025" class="meta-value">2025</time></li>
-      </ul>
-      <div class="cert-badges">
-        <span class="badge">AI &amp; Data</span>
-        <a href="#" class="badge badge-link">Verified</a>
-      </div>
-    </article>
-
-    <article class="cert-card" data-domain="devops" data-year="2025" data-issuer="PagerDuty" data-skills="devops incident">
-      <div class="cert-accent from-indigo-500 via-violet-500 to-fuchsia-500"></div>
-      <header class="cert-card-header">
-        <div class="cert-icon bg-violet-100 dark:bg-violet-900/40">
-          <svg class="h-5 w-5 text-violet-700 dark:text-violet-300" viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16v4H4zm0 5h16v9H4z"/></svg>
-        </div>
-        <h4 class="cert-title">DevOps Professional</h4>
-      </header>
-      <ul class="cert-meta">
-        <li><span class="meta-label">Issuer</span><span class="meta-value">PagerDuty</span></li>
-        <li><span class="meta-label">Year</span><time datetime="2025" class="meta-value">2025</time></li>
-      </ul>
-      <div class="cert-badges">
-        <span class="badge">DevOps</span>
-      </div>
-    </article>
-
-    <article class="cert-card" data-domain="cloud-sec" data-year="2025" data-issuer="Microsoft" data-skills="security fundamentals">
-      <div class="cert-accent from-sky-500 via-cyan-500 to-blue-500"></div>
-      <header class="cert-card-header">
-        <div class="cert-icon bg-sky-100 dark:bg-sky-900/40">
-          <svg class="h-5 w-5 text-sky-700 dark:text-sky-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.8 9.7 8 10 4.2-.3 8-5 8-10V6Z"/></svg>
-        </div>
-        <h4 class="cert-title">Microsoft Security Essentials Professional</h4>
-      </header>
-      <ul class="cert-meta">
-        <li><span class="meta-label">Issuer</span><span class="meta-value">Microsoft</span></li>
-        <li><span class="meta-label">Year</span><time datetime="2025" class="meta-value">2025</time></li>
-      </ul>
-      <div class="cert-badges">
-        <span class="badge">Cloud/Security</span>
-      </div>
-    </article>
-
-    <article class="cert-card" data-domain="leadership" data-year="2025" data-issuer="ServiceNow" data-skills="leadership">
-      <div class="cert-accent from-rose-500 via-pink-500 to-orange-500"></div>
-      <header class="cert-card-header">
-        <div class="cert-icon bg-rose-100 dark:bg-rose-900/40">
-          <svg class="h-5 w-5 text-rose-700 dark:text-rose-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 9l10 6 10-6-10-6Zm0 8.2L4.8 9 12 4.8 19.2 9 12 11.2Z"/></svg>
-        </div>
-        <h4 class="cert-title">IT Leadership Professional</h4>
-      </header>
-      <ul class="cert-meta">
-        <li><span class="meta-label">Issuer</span><span class="meta-value">ServiceNow</span></li>
-        <li><span class="meta-label">Year</span><time datetime="2025" class="meta-value">2025</time></li>
-      </ul>
-      <div class="cert-badges">
-        <span class="badge">Leadership</span>
-      </div>
-    </article>
-
-    <article class="cert-card" data-domain="ai-data" data-year="2025" data-issuer="HackerRank" data-skills="sql">
-      <div class="cert-accent from-amber-500 via-yellow-500 to-orange-500"></div>
-      <header class="cert-card-header">
-        <div class="cert-icon bg-amber-100 dark:bg-amber-900/40">
-          <svg class="h-5 w-5 text-amber-700 dark:text-amber-300" viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16v4H4zM4 11h16v8H4z"/></svg>
-        </div>
-        <h4 class="cert-title">Software Engineer</h4>
-      </header>
-      <ul class="cert-meta">
-        <li><span class="meta-label">Issuer</span><span class="meta-value">HackerRank</span></li>
-        <li><span class="meta-label">Year</span><time datetime="2025" class="meta-value">2025</time></li>
-      </ul>
-      <div class="cert-badges">
-        <span class="badge">AI &amp; Data</span>
-        <span class="badge badge-muted">Skill: SQL</span>
-      </div>
-    </article>
-
-    <article class="cert-card" data-domain="pm" data-year="2025" data-issuer="Microsoft" data-skills="project management">
-      <div class="cert-accent from-emerald-500 via-teal-500 to-green-500"></div>
-      <header class="cert-card-header">
-        <div class="cert-icon bg-emerald-100 dark:bg-emerald-900/40">
-          <svg class="h-5 w-5 text-emerald-700 dark:text-emerald-300" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4h10a2 2 0 0 1 2 2v2H5V6a2 2 0 0 1 2-2Z"/><path d="M5 10h14v8a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/></svg>
-        </div>
-        <h4 class="cert-title">Career Essentials in Project Management</h4>
-      </header>
-      <ul class="cert-meta">
-        <li><span class="meta-label">Issuer</span><span class="meta-value">Microsoft</span></li>
-        <li><span class="meta-label">Year</span><time datetime="2025" class="meta-value">2025</time></li>
-      </ul>
-      <div class="cert-badges">
-        <span class="badge">Project Mgmt</span>
-      </div>
-    </article>
-
-    <article class="cert-card" data-domain="water" data-year="2023" data-issuer="Netherlands" data-skills="utilities water sustainability">
-      <div class="cert-accent from-sky-500 via-cyan-500 to-blue-500"></div>
-      <header class="cert-card-header">
-        <div class="cert-icon bg-sky-100 dark:bg-sky-900/40">
-          <svg class="h-5 w-5 text-sky-700 dark:text-sky-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69 7.05 8.3A7 7 0 1 0 19 14a6.94 6.94 0 0 0-1.8-4.69Z"/></svg>
-        </div>
-        <h4 class="cert-title">Enhancing Sustainable Water Utilities</h4>
-      </header>
-      <ul class="cert-meta">
-        <li><span class="meta-label">Issuer</span><span class="meta-value">Netherlands</span></li>
-        <li><span class="meta-label">Year</span><time datetime="2023" class="meta-value">2023</time></li>
-      </ul>
-      <div class="cert-badges">
-        <span class="badge">Water/Utilities</span>
-      </div>
-    </article>
-
-    <article class="cert-card" data-domain="ai-data" data-year="2024" data-issuer="ALX Africa" data-skills="data analysis sql powerbi python excel communication" data-expired="false">
-      <div class="cert-accent from-gray-400 via-slate-400 to-zinc-400"></div>
-      <header class="cert-card-header">
-        <div class="cert-icon bg-gray-100 dark:bg-gray-900/40">
-          <svg class="h-5 w-5 text-gray-700 dark:text-gray-300" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v12H4z"/></svg>
-        </div>
-        <h4 class="cert-title">Data Science</h4>
-      </header>
-      <ul class="cert-meta">
-        <li><span class="meta-label">Issuer</span><span class="meta-value">ALX Africa</span></li>
-        <li><span class="meta-label">Year</span><time datetime="2024" class="meta-value">2024</time></li>
-      </ul>
-      <div class="cert-badges">
-        <span class="badge">AI &amp; Data</span>
-      </div>
-    </article>
-
-    <!-- Example expired short-courses (badge shows “Expired”) -->
-    <article class="cert-card" data-domain="ai-data" data-year="2024" data-issuer="HP LIFE" data-skills="analytics" data-expired="true">
-      <div class="cert-accent from-stone-400 via-neutral-400 to-stone-500"></div>
-      <header class="cert-card-header">
-        <div class="cert-icon bg-stone-100 dark:bg-stone-900/40">
-          <svg class="h-5 w-5 text-stone-700 dark:text-stone-300" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v16H4z"/></svg>
-        </div>
-        <h4 class="cert-title">Data Science &amp; Analytics</h4>
-      </header>
-      <ul class="cert-meta">
-        <li><span class="meta-label">Issuer</span><span class="meta-value">HP LIFE</span></li>
-        <li><span class="meta-label">Year</span><time datetime="2024" class="meta-value">2024</time></li>
-      </ul>
-      <div class="cert-badges">
-        <span class="badge badge-expired" title="This credential is time-limited and has expired">Expired</span>
-      </div>
-    </article>
-
-  </div>
-
-  <!-- Footer tip -->
+  <!-- subtle footer -->
   <footer class="mt-6 text-xs text-gray-500 dark:text-gray-400">
-    Tip: convert any card title into a link to the public credential by wrapping <code>.cert-title</code> with an <code>&lt;a&gt;</code> tag.
+    <span class="inline-flex items-center gap-1">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/></svg>
+      <em>Tip:</em> Replace any item with an anchor tag if you want to link the public credential (e.g., <code>&lt;a href="…" class="focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md"&gt;…&lt;/a&gt;</code>).
+    </span>
   </footer>
 </section>
-
-<!-- ===== Styles (Tailwind utility-friendly) ===== -->
-<style>
-  .cert-card {
-    @apply group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-6 shadow-sm hover:shadow-lg transition-all;
-  }
-  .cert-accent { @apply absolute inset-x-0 top-0 h-1 bg-gradient-to-r; }
-  .cert-card-header { @apply flex items-center gap-3 mb-4; }
-  .cert-icon { @apply flex h-10 w-10 items-center justify-center rounded-full; }
-  .cert-title { @apply text-lg font-semibold text-gray-900 dark:text-white group-hover:text-indigo-600 transition-colors; }
-  .cert-meta { @apply text-sm space-y-1 mb-3; }
-  .cert-meta .meta-label { @apply text-gray-500 dark:text-gray-400 mr-1; }
-  .cert-meta .meta-value { @apply text-gray-800 dark:text-gray-200; }
-  .cert-badges { @apply flex flex-wrap gap-2; }
-  .badge { @apply inline-flex items-center text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300; }
-  .badge-muted { @apply bg-gray-50 dark:bg-white/5 text-gray-600 dark:text-gray-300; }
-  .badge-expired { @apply bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300; }
-  .badge-link { @apply bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 underline decoration-dotted; }
-
-  .cert-chip { @apply px-3 py-1.5 rounded-full text-xs border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-white/5 transition; }
-  .cert-chip.active { @apply bg-indigo-600 text-white border-indigo-600; }
-
-  .view-btn { @apply inline-flex items-center justify-center h-9 w-9 rounded-lg border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-white/5 transition; }
-  .view-btn.active { @apply bg-indigo-600 text-white border-indigo-600; }
-
-  /* List view */
-  .list-view #certGrid { @apply grid-cols-1; }
-  .list-view .cert-card { @apply p-4; }
-  .list-view .cert-title { @apply text-base; }
-</style>
-
-<!-- ===== Controller (vanilla JS) ===== -->
-<script>
-  (function () {
-    const grid = document.getElementById('certGrid');
-    const countEl = document.getElementById('certCount').querySelector('span');
-    const chips = Array.from(document.querySelectorAll('.cert-chip'));
-    const search = document.getElementById('certSearch');
-    const sortSel = document.getElementById('certSort');
-    const btnGrid = document.getElementById('viewGrid');
-    const btnList = document.getElementById('viewList');
-    let activeFilter = 'all';
-
-    function getCards() { return Array.from(grid.querySelectorAll('.cert-card')); }
-
-    function normalize(s) { return (s || '').toString().toLowerCase(); }
-
-    function applyFilters() {
-      const q = normalize(search.value);
-      let visible = 0;
-
-      getCards().forEach(card => {
-        const domain = card.dataset.domain || '';
-        const issuer = normalize(card.dataset.issuer);
-        const year = (card.dataset.year || '');
-        const skills = normalize(card.dataset.skills);
-        const title = normalize(card.querySelector('.cert-title').textContent);
-
-        const domainMatch = (activeFilter === 'all') || (domain === activeFilter);
-        const text = [title, issuer, year, skills].join(' ');
-        const searchMatch = !q || text.includes(q);
-
-        const show = domainMatch && searchMatch;
-        card.style.display = show ? '' : 'none';
-        if (show) visible++;
-      });
-
-      countEl.textContent = `${visible} item${visible === 1 ? '' : 's'}`;
-    }
-
-    function applySort() {
-      const cards = getCards();
-      const mode = sortSel.value;
-
-      cards.sort((a, b) => {
-        if (mode === 'alpha') {
-          return a.querySelector('.cert-title').textContent.localeCompare(
-            b.querySelector('.cert-title').textContent
-          );
-        }
-        const ay = parseInt(a.dataset.year || '0', 10);
-        const by = parseInt(b.dataset.year || '0', 10);
-        return mode === 'asc' ? ay - by : by - ay;
-      });
-
-      cards.forEach(c => grid.appendChild(c)); // reflow
-    }
-
-    // Chips
-    chips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        chips.forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        activeFilter = chip.dataset.filter;
-        applyFilters();
-      });
-    });
-
-    // Search & Sort
-    search.addEventListener('input', () => applyFilters());
-    sortSel.addEventListener('change', () => { applySort(); applyFilters(); });
-
-    // View toggle
-    btnGrid.addEventListener('click', () => {
-      document.getElementById('certifications').classList.remove('list-view');
-      btnGrid.classList.add('active'); btnList.classList.remove('active');
-    });
-    btnList.addEventListener('click', () => {
-      document.getElementById('certifications').classList.add('list-view');
-      btnList.classList.add('active'); btnGrid.classList.remove('active');
-    });
-
-    // Expired badge visibility (optional: driven by data-expired)
-    getCards().forEach(card => {
-      if (card.dataset.expired === 'true') {
-        const wrap = card.querySelector('.cert-badges');
-        if (wrap && !wrap.querySelector('.badge-expired')) {
-          const span = document.createElement('span');
-          span.className = 'badge badge-expired';
-          span.textContent = 'Expired';
-          wrap.appendChild(span);
-        }
-      }
-    });
-
-    // Initial paint
-    applySort();
-    applyFilters();
-  })();
-</script>
 
 
 <!-- Education Section -->
