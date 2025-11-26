@@ -3432,8 +3432,10 @@
     const icon = document.getElementById('themeIcon');
 
     const applyTheme = (isDark) => {
-      html.classList[isDark ? 'add' : 'remove']('dark');
-      if (body) body.classList[isDark ? 'add' : 'remove']('dark');
+      const method = isDark ? 'add' : 'remove';
+      html.classList[method]('dark');
+      if (body) body.classList[method]('dark');
+      html.style.colorScheme = isDark ? 'dark' : 'light';
       if (icon) icon.textContent = isDark ? '☀️' : '🌙';
     };
 
