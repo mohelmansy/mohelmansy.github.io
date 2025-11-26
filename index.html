@@ -8,18 +8,10 @@
     <meta property="og:image" content="https://example.com/preview.jpg" />
     <meta property="og:description" content="Specialized services in AI, Data Analytics, BI Dashboards, Strategic Planning, and Professional Training across MENA." />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <meta property="og:type" content="website" />
-    <title>Mohamed El-Mansy | Consultant & Trainer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-<style>
-  .contact-icon {
-    @apply w-14 h-14 flex items-center justify-center text-white rounded-full shadow-lg
-           transition-all duration-300 transform hover:scale-110 focus:outline-none;
-  }
-</style>
     <script>
+      window.tailwind = window.tailwind || {};
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             animation: {
@@ -35,6 +27,37 @@
         },
       };
     </script>
+    <meta property="og:type" content="website" />
+    <title>Mohamed El-Mansy | Consultant & Trainer</title>
+    <script>
+      (function() {
+        try {
+          const stored = localStorage.getItem('theme');
+          if (stored === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .contact-icon {
+    @apply w-14 h-14 flex items-center justify-center text-white rounded-full shadow-lg
+           transition-all duration-300 transform hover:scale-110 focus:outline-none;
+  }
+
+  body.rtl {
+    direction: rtl;
+  }
+
+  body.rtl .text-left {
+    text-align: right;
+  }
+
+  body.rtl .text-right {
+    text-align: left;
+  }
+</style>
   </head>
   <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-sans transition duration-300">
 
@@ -43,16 +66,24 @@
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     <div class="text-xl font-bold text-blue-600">Mohamed El-Mansy</div>
 
-    <!-- Desktop Nav -->
-    <nav class="space-x-4 hidden md:flex items-center" id="navLinks">
-      <a href="#hero" class="hover:text-blue-600">Home</a>
-      <a href="#about" class="hover:text-blue-600">About</a>
-      <a href="#services" class="hover:text-blue-600">Services</a>
-      <a href="#portfolio" class="hover:text-blue-600">Portfolio</a>
-      <a href="#case-studies" class="hover:text-blue-600">Projects</a>
-      <a href="#gallery" class="hover:text-blue-600">Gallery</a>
-      <a href="#contact" class="hover:text-blue-600">Hire Me</a>
-    </nav>
+    <div class="hidden md:flex items-center gap-4">
+      <!-- Desktop Nav -->
+      <nav class="space-x-4 hidden md:flex items-center" id="navLinks">
+        <a href="#hero" class="hover:text-blue-600">Home</a>
+        <a href="#about" class="hover:text-blue-600">About</a>
+        <a href="#services" class="hover:text-blue-600">Services</a>
+        <a href="#portfolio" class="hover:text-blue-600">Portfolio</a>
+        <a href="#case-studies" class="hover:text-blue-600">Projects</a>
+        <a href="#gallery" class="hover:text-blue-600">Gallery</a>
+        <a href="#contact" class="hover:text-blue-600">Hire Me</a>
+      </nav>
+
+      <!-- Desktop Language Toggle -->
+      <div id="languageDesktopToggle" class="flex items-center gap-1 rounded-full bg-gray-100 dark:bg-gray-700 px-1 py-1 text-sm font-semibold shadow-inner">
+        <button data-lang="en" class="lang-btn px-3 py-1 rounded-full text-blue-700 dark:text-blue-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900">EN</button>
+        <button data-lang="ar" class="lang-btn px-3 py-1 rounded-full text-gray-700 dark:text-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900">ع</button>
+      </div>
+    </div>
 
     <!-- Hamburger -->
     <button class="md:hidden text-blue-600 text-2xl" id="menuToggle">☰</button>
@@ -61,6 +92,13 @@
   <!-- Mobile Nav (Initially hidden) -->
 <!-- Mobile Navigation Menu (initially hidden) -->
 <nav id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 text-gray-800 dark:text-white shadow-lg px-6 py-4 space-y-4">
+  <div class="flex items-center justify-between pb-3 border-b border-gray-200 dark:border-white/10">
+    <span class="text-sm font-semibold" data-i18n="nav.languageLabel">Language</span>
+    <div id="languageMobileToggle" class="flex items-center gap-2">
+      <button data-lang="en" class="lang-btn px-3 py-1 rounded-full text-blue-700 dark:text-blue-300 text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">EN</button>
+      <button data-lang="ar" class="lang-btn px-3 py-1 rounded-full text-gray-700 dark:text-gray-200 text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">ع</button>
+    </div>
+  </div>
   <a href="#hero" class="block text-lg font-medium hover:text-blue-600 transition">Home</a>
   <a href="#about" class="block text-lg font-medium hover:text-blue-600 transition">About</a>
   <a href="#services" class="block text-lg font-medium hover:text-blue-600 transition">Services</a>
@@ -72,7 +110,6 @@
 
 </header>
 
-s
 
 <!-- Hero Section with Background SVG Pattern -->
 <section 
@@ -115,27 +152,27 @@ s
   </h1>
 
   <!-- Main Role -->
-  <p class="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-400">
+  <p class="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-400 hero-line">
     Consultant &amp; Trainer | PMO &amp; Corporate Governance Lead
   </p>
   
   <!-- Subline / Leadership -->
-  <p class="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-400">
+  <p class="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-400 hero-line">
     Project Management &amp; Compliance | Policies · SOPs · SMPs · DoA
   </p>
   
   <!-- Expertise / Tech Stack -->
-  <p class="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-400">
+  <p class="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-400 hero-line">
     Senior Data Scientist | Data-Driven Strategy | GenAI · MLOps · BI · Python
   </p>
   
   <!-- Domain & Consulting -->
-  <p class="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-400">
+  <p class="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-400 hero-line">
     Digital Transformation · O&amp;M · NRW Expert | ML Automation
   </p>
   
   <!-- Consulting & Training -->
-  <p class="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-400">
+  <p class="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-400 hero-line">
     Building Governance Frameworks | Enabling Data-Driven Excellence
   </p>
 
@@ -153,31 +190,31 @@ s
   <div class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-3xl">
 
     <!-- Badge 1 -->
-    <span class="inline-block bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 text-sm md:text-base font-semibold px-4 py-1.5 rounded-full shadow-sm">
+    <span class="inline-block bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 text-sm md:text-base font-semibold px-4 py-1.5 rounded-full shadow-sm hero-badge">
       15+ Years Experience
     </span>
 
     <!-- Badge 2 -->
-    <span class="inline-block bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-sm md:text-base font-semibold px-4 py-1.5 rounded-full shadow-sm">
+    <span class="inline-block bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-sm md:text-base font-semibold px-4 py-1.5 rounded-full shadow-sm hero-badge">
       1700+ Hours Training
     </span>
 
     <!-- Badge 3 -->
-    <span class="inline-block bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 text-sm md:text-base font-semibold px-4 py-1.5 rounded-full shadow-sm">
+    <span class="inline-block bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 text-sm md:text-base font-semibold px-4 py-1.5 rounded-full shadow-sm hero-badge">
       AI & Data Science
     </span>
 
     <!-- Badge 4 -->
-    <span class="inline-block bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 text-sm md:text-base font-semibold px-4 py-1.5 rounded-full shadow-sm">
+    <span class="inline-block bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 text-sm md:text-base font-semibold px-4 py-1.5 rounded-full shadow-sm hero-badge">
       Digital Transformation
     </span>
 
     <!-- Badge 5 -->
-    <span class="inline-block bg-gray-800 text-white dark:bg-gray-700 dark:text-gray-200 text-sm md:text-base font-semibold px-4 py-1.5 rounded-full shadow-sm">
+    <span class="inline-block bg-gray-800 text-white dark:bg-gray-700 dark:text-gray-200 text-sm md:text-base font-semibold px-4 py-1.5 rounded-full shadow-sm hero-badge">
       Water Utilities
     </span>
 
-     <span class="inline-block bg-gray-800 text-white dark:bg-gray-700 dark:text-gray-200 text-sm md:text-base font-semibold px-4 py-1.5 rounded-full shadow-sm">
+     <span class="inline-block bg-gray-800 text-white dark:bg-gray-700 dark:text-gray-200 text-sm md:text-base font-semibold px-4 py-1.5 rounded-full shadow-sm hero-badge">
       17.3 Linkedin Followers
     </span>
 
@@ -190,6 +227,7 @@ s
 
     <!-- Hire Me Button -->
     <a href="#contact" 
+       id="hireBtn"
        class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl
               bg-gradient-to-br from-[#0b1d35] via-[#0e2c4a] to-[#123860]
               text-white text-base font-semibold
@@ -207,6 +245,7 @@ s
 
     <!-- Explore Services Button -->
     <a href="#services"
+       id="servicesBtn"
        class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl
               bg-gradient-to-br from-[#0d233f] via-[#123458] to-[#164574]
               text-white text-base font-semibold
@@ -223,6 +262,7 @@ s
 
     <!-- Show CV Button -->
     <a href="assets/files/Mohamed_Elmansy_CV.pdf" download
+       id="cvBtn"
        class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl
               bg-gradient-to-br from-[#0c203a] via-[#112e52] to-[#1a3f6f]
               text-white text-base font-semibold
@@ -246,7 +286,7 @@ s
   <div class="max-w-5xl mx-auto px-6">
     
     <!-- Heading -->
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6" data-i18n="about.heading">
       Meet Your Professional
     </h2>
 
@@ -256,58 +296,58 @@ s
         <span class="text-4xl font-bold text-blue-600 dark:text-blue-400">
           <span data-count="120">0</span>+
         </span>
-        <span class="block mt-2">Projects Done</span>
+        <span class="block mt-2 about-stat">Projects Done</span>
       </div>
       <div>
         <span class="text-4xl font-bold text-blue-600 dark:text-blue-400">
           <span data-count="6000">0</span>+
         </span>
-        <span class="block mt-2">Professionals Trained</span>
+        <span class="block mt-2 about-stat">Professionals Trained</span>
       </div>
       <div>
         <span class="text-4xl font-bold text-blue-600 dark:text-blue-400">
           <span data-count="8">0</span>+
         </span>
-        <span class="block mt-2">Countries Reached</span>
+        <span class="block mt-2 about-stat">Countries Reached</span>
       </div>
       <div>
         <span class="text-4xl font-bold text-blue-600 dark:text-blue-400">
           <span data-count="98">0</span>%
         </span>
-        <span class="block mt-2">Satisfaction Rate</span>
+        <span class="block mt-2 about-stat">Satisfaction Rate</span>
       </div>
     </div>
 
     <!-- Bio Paragraph -->
 <div class="text-left md:text-justify text-gray-700 dark:text-gray-300 text-lg leading-relaxed space-y-6 text-justify">
 
-  <p>
+  <p class="about-paragraph">
     I’m <strong>Mohamed El-Mansy</strong>, a <strong>Project Consultant, and Digital Transformation Leader</strong> with over 
     <strong>14 years of international experience</strong> delivering large-scale <strong>funded development programs</strong> and 
     advanced <strong>AI-driven solutions</strong> across Egypt, Saudi Arabia, UAE, and Oman.
   </p>
 
-  <p>
+  <p class="about-paragraph">
     My expertise spans <strong>private sector development, SME competitiveness, and investment facilitation</strong>, with a proven record 
     in <strong>donar projects</strong> supporting Non-Revenue Water Management, economic growth, infrastructure, and sustainability. 
     I am adept at <strong>policy dialogue</strong> with governments, financial institutions, and private sector stakeholders, aligning 
     development priorities with actionable strategies.
   </p>
 
-  <p>
+  <p class="about-paragraph">
     As a <strong>Senior Data Scientist & Consultant</strong>, I specialize in <strong>Python</strong>, 
     <strong>cloud analytics</strong>, <strong>GenAI</strong>, and <strong>explainable AI (XAI)</strong>. I design and deploy 
     <strong>LLM-powered tools</strong>, scalable AI products, intelligent dashboards, and <strong>self-serve BI platforms</strong> using 
     Python, SQL, Power BI, and NLP, helping organizations streamline KPIs, automate compliance, and reduce inefficiencies.
   </p>
 
-  <p>
+  <p class="about-paragraph">
     My portfolio includes leadership in <strong>MLOps, model governance, and ethical AI</strong>, delivery of over 
     <strong>1,700 hours of technical training</strong>, and facilitation of stakeholder engagement in 
     <strong>data-driven legal, tax, and compliance transformation projects</strong>.
   </p>
 
-  <p>
+  <p class="about-paragraph">
     Currently pursuing an <strong>Executive Master of Business Administration (Cardiff Institute, UK)</strong>, I bridge 
     <strong>policy, finance, and technology</strong> to foster <strong>public-private partnerships</strong> and drive 
     sustainable, innovation-led growth under the <strong>EU Global Gateway framework</strong>.
@@ -327,10 +367,10 @@ s
   <div class="relative max-w-7xl mx-auto px-6">
     <!-- Header -->
     <header class="text-center mb-12">
-      <h2 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+      <h2 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white" data-i18n="services.heading">
         Professional Services
       </h2>
-      <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+      <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto" data-i18n="services.subhead">
         End-to-end delivery across strategy, data, and execution — designed for measurable impact and enterprise reliability.
       </p>
     </header>
@@ -339,15 +379,15 @@ s
     <div class="mx-auto mb-12 grid sm:grid-cols-3 gap-4 max-w-4xl">
       <div class="flex items-center justify-center gap-2 rounded-xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2">
         <span class="h-2 w-2 rounded-full bg-blue-500"></span>
-        <span class="text-sm text-gray-700 dark:text-gray-300">Strategy → Delivery → Adoption</span>
+        <span class="text-sm text-gray-700 dark:text-gray-300 value-prop">Strategy → Delivery → Adoption</span>
       </div>
       <div class="flex items-center justify-center gap-2 rounded-xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2">
         <span class="h-2 w-2 rounded-full bg-indigo-500"></span>
-        <span class="text-sm text-gray-700 dark:text-gray-300">Compliance & Governance by design</span>
+        <span class="text-sm text-gray-700 dark:text-gray-300 value-prop">Compliance & Governance by design</span>
       </div>
       <div class="flex items-center justify-center gap-2 rounded-xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2">
         <span class="h-2 w-2 rounded-full bg-purple-500"></span>
-        <span class="text-sm text-gray-700 dark:text-gray-300">Enterprise-grade reliability</span>
+        <span class="text-sm text-gray-700 dark:text-gray-300 value-prop">Enterprise-grade reliability</span>
       </div>
     </div>
 
@@ -355,7 +395,7 @@ s
     <div class="grid md:grid-cols-3 gap-8">
       <!-- Card template -->
       <!-- 1. Project Management -->
-      <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-8 shadow-sm hover:shadow-xl transition-all">
+      <article class="group service-card relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-8 shadow-sm hover:shadow-xl transition-all">
         <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
         <div class="flex items-center justify-between mb-4">
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Project Management</h3>
@@ -375,7 +415,7 @@ s
       </article>
 
       <!-- 2. Strategic Planning -->
-      <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-8 shadow-sm hover:shadow-xl transition-all">
+      <article class="group service-card relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-8 shadow-sm hover:shadow-xl transition-all">
         <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500"></div>
         <div class="flex items-center justify-between mb-4">
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Strategic Planning</h3>
@@ -395,7 +435,7 @@ s
       </article>
 
       <!-- 3. Professional Training -->
-      <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-8 shadow-sm hover:shadow-xl transition-all">
+      <article class="group service-card relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-8 shadow-sm hover:shadow-xl transition-all">
         <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-500 via-yellow-500 to-orange-500"></div>
         <div class="flex items-center justify-between mb-4">
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Professional Training</h3>
@@ -416,7 +456,7 @@ s
       </article>
 
       <!-- 4. BI Dashboards -->
-      <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-8 shadow-sm hover:shadow-xl transition-all">
+      <article class="group service-card relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-8 shadow-sm hover:shadow-xl transition-all">
         <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500"></div>
         <div class="flex items-center justify-between mb-4">
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white">BI Dashboards</h3>
@@ -436,7 +476,7 @@ s
       </article>
 
       <!-- 5. Data Analysis -->
-      <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-8 shadow-sm hover:shadow-xl transition-all">
+      <article class="group service-card relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-8 shadow-sm hover:shadow-xl transition-all">
         <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-rose-500 via-red-500 to-orange-500"></div>
         <div class="flex items-center justify-between mb-4">
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Data Analysis</h3>
@@ -458,7 +498,7 @@ s
       </article>
 
       <!-- 6. Automation -->
-      <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-8 shadow-sm hover:shadow-xl transition-all">
+      <article class="group service-card relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-8 shadow-sm hover:shadow-xl transition-all">
         <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-500"></div>
         <div class="flex items-center justify-between mb-4">
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Automation</h3>
@@ -481,11 +521,11 @@ s
   
     <!-- CTA -->
     <div class="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="#contact" class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-white font-semibold shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition">
+      <a href="#contact" id="proposalBtn" class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-white font-semibold shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition">
         Get a Proposal
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4-4 4M3 12h18"/></svg>
       </a>
-      <a href="#case-studies" class="inline-flex items-center gap-2 rounded-xl border border-gray-300 dark:border-white/20 px-6 py-3 text-gray-800 dark:text-gray-200 font-semibold hover:bg-gray-100 dark:hover:bg-white/5 transition">
+      <a href="#case-studies" id="projectsBtn" class="inline-flex items-center gap-2 rounded-xl border border-gray-300 dark:border-white/20 px-6 py-3 text-gray-800 dark:text-gray-200 font-semibold hover:bg-gray-100 dark:hover:bg-white/5 transition">
         View Projects
       </a>
     </div>
@@ -498,7 +538,7 @@ s
 
     <!-- Section Heading -->
   <div class="text-center mb-12">
-    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white inline-block relative">
+    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white inline-block relative" data-i18n="portfolio.heading">
       Portfolio
       <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-blue-500 rounded"></span>
     </h3>
@@ -507,10 +547,10 @@ s
 
        <!-- Skills -->
 
-<div class="mb-20">
+<div class="mb-20" id="skills">
     <!-- Header -->
   <header class="relative mb-10">
-    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white inline-block relative">
+    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white inline-block relative" data-i18n="skills.heading">
       Skill Domains
       <span class="absolute -bottom-2 left-0 h-1 w-28 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 rounded"></span>
     </h3>
@@ -520,7 +560,7 @@ s
   <div class="grid md:grid-cols-4 sm:grid-cols-2 gap-6">
     
     <!-- Card -->
-    <div class="group relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+    <div class="group skill-card relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
       <div class="absolute top-0 right-0 p-2 text-blue-500">
         <i class="fas fa-database text-2xl"></i>
       </div>
@@ -535,7 +575,7 @@ s
     </div>
 
     <!-- Programming -->
-    <div class="group relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+    <div class="group skill-card relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
       <div class="absolute top-0 right-0 p-2 text-green-500">
         <i class="fas fa-code text-2xl"></i>
       </div>
@@ -550,7 +590,7 @@ s
     </div>
 
     <!-- Cloud -->
-    <div class="group relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+    <div class="group skill-card relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
       <div class="absolute top-0 right-0 p-2 text-purple-500">
         <i class="fas fa-cloud text-2xl"></i>
       </div>
@@ -565,7 +605,7 @@ s
     </div>
 
     <!-- Machine Learning -->
-    <div class="group relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+    <div class="group skill-card relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
       <div class="absolute top-0 right-0 p-2 text-red-500">
         <i class="fas fa-robot text-2xl"></i>
       </div>
@@ -580,7 +620,7 @@ s
     </div>
 
     <!-- BI & Dashboards -->
-    <div class="group relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+    <div class="group skill-card relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
       <div class="absolute top-0 right-0 p-2 text-yellow-500">
         <i class="fas fa-chart-line text-2xl"></i>
       </div>
@@ -594,7 +634,7 @@ s
     </div>
 
     <!-- Governance -->
-    <div class="group relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+    <div class="group skill-card relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
       <div class="absolute top-0 right-0 p-2 text-indigo-500">
         <i class="fas fa-balance-scale text-2xl"></i>
       </div>
@@ -609,7 +649,7 @@ s
     </div>
 
     <!-- Domain Expertise -->
-    <div class="group relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+    <div class="group skill-card relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
       <div class="absolute top-0 right-0 p-2 text-pink-500">
         <i class="fas fa-project-diagram text-2xl"></i>
       </div>
@@ -624,7 +664,7 @@ s
     </div>
 
     <!-- Leadership -->
-    <div class="group relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+    <div class="group skill-card relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2">
       <div class="absolute top-0 right-0 p-2 text-teal-500">
         <i class="fas fa-users text-2xl"></i>
       </div>
@@ -641,7 +681,7 @@ s
 </div>
 
 <header class="relative mb-10">
-    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white inline-block relative">
+    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white inline-block relative" data-i18n="experience.heading">
       Professional Experience
       <span class="absolute -bottom-2 left-0 h-1 w-28 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 rounded"></span>
     </h3>
@@ -652,39 +692,39 @@ s
     <!-- EXPERIENCE COMPONENT -->
     <!-- Reusable layout for each role -->
      <!-- FREELANCING (umbrella) -->
-<article class="relative pl-10 group transition-transform duration-300 hover:scale-[1.01]" aria-labelledby="freelance-root">
+<article class="relative pl-10 group transition-transform duration-300 hover:scale-[1.01]" aria-labelledby="freelance-root" data-exp="freelance">
   <!-- timeline dot -->
   <div class="absolute w-4 h-4 bg-blue-600 rounded-full left-[-10px] top-2.5 ring-4 ring-white dark:ring-gray-900 transition-all group-hover:ring-blue-400"></div>
 
-  <div class="flex flex-col md:flex-row md:justify-between gap-6">
-    <!-- Left: umbrella info -->
-    <div class="md:w-3/4">
-      <h3 id="freelance-root" class="text-2xl font-semibold text-gray-100 flex items-center gap-2">
-        Freelancing
-      </h3>
-      <p class="text-gray-400 mt-1">Global clients · Remote & Onsite (EG, KSA, UAE, OM, UK, CA)</p>
-      <p class="mt-3 text-gray-300 leading-relaxed">
-        Independent consultant delivering high-impact solutions across analytics, software, and training. Engagements span discovery → delivery → adoption,
-        with measurable business outcomes and enablement for in-house teams.
-      </p>
+      <div class="flex flex-col md:flex-row md:justify-between gap-6">
+        <!-- Left: umbrella info -->
+        <div class="md:w-3/4">
+          <h3 id="freelance-root" class="text-2xl font-semibold text-gray-100 flex items-center gap-2 exp-title">
+            Freelancing
+          </h3>
+          <p class="text-gray-400 mt-1 exp-meta">Global clients · Remote & Onsite (EG, KSA, UAE, OM, UK, CA)</p>
+          <p class="mt-3 text-gray-300 leading-relaxed exp-summary">
+            Independent consultant delivering high-impact solutions across analytics, software, and training. Engagements span discovery → delivery → adoption,
+            with measurable business outcomes and enablement for in-house teams.
+          </p>
 
-      <!-- optional quick stats -->
+          <!-- optional quick stats -->
       <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3" aria-label="Freelancing overview">
         <div class="rounded-xl border border-white/10 p-3">
-          <div class="text-xs text-gray-400">Years</div>
-          <div class="text-sm text-gray-200">2010–Present</div>
+          <div class="text-xs text-gray-400 exp-stat-label">Years</div>
+          <div class="text-sm text-gray-200 exp-stat-value">2010–Present</div>
         </div>
         <div class="rounded-xl border border-white/10 p-3">
-          <div class="text-xs text-gray-400">Regions</div>
-          <div class="text-sm text-gray-200">MENA · Europe · North America</div>
+          <div class="text-xs text-gray-400 exp-stat-label">Regions</div>
+          <div class="text-sm text-gray-200 exp-stat-value">MENA · Europe · North America</div>
         </div>
         <div class="rounded-xl border border-white/10 p-3">
-          <div class="text-xs text-gray-400">Engagements</div>
-          <div class="text-sm text-gray-200">Projects · Retainers · Workshops</div>
+          <div class="text-xs text-gray-400 exp-stat-label">Engagements</div>
+          <div class="text-sm text-gray-200 exp-stat-value">Projects · Retainers · Workshops</div>
         </div>
         <div class="rounded-xl border border-white/10 p-3">
-          <div class="text-xs text-gray-400">Enablement</div>
-          <div class="text-sm text-gray-200">5000+ trainees</div>
+          <div class="text-xs text-gray-400 exp-stat-label">Enablement</div>
+          <div class="text-sm text-gray-200 exp-stat-value">5000+ trainees</div>
         </div>
       </div>
 
@@ -692,22 +732,22 @@ s
       <div class="mt-6 space-y-6">
 
         <!-- CATEGORY: Data Science & Training -->
-        <section class="rounded-2xl border border-white/10 p-5 bg-white/5" aria-labelledby="cat-ds">
+        <section class="rounded-2xl border border-white/10 p-5 bg-white/5 exp-category" aria-labelledby="cat-ds" data-exp-cat="0">
           <div class="flex items-start justify-between gap-4">
             <div>
-              <h4 id="cat-ds" class="text-xl font-semibold text-gray-100">Data Consultant & Scientist / Analyst & Trainer</h4>
-              <p class="text-gray-400 text-sm mt-0.5">2020–Present · KPI strategy · ML/NLP · Dashboards · Upskilling</p>
+              <h4 id="cat-ds" class="text-xl font-semibold text-gray-100 exp-subtitle">Data Consultant & Scientist / Analyst & Trainer</h4>
+              <p class="text-gray-400 text-sm mt-0.5 exp-submeta">2020–Present · KPI strategy · ML/NLP · Dashboards · Upskilling</p>
             </div>
           </div>
 
-          <p class="mt-3 text-gray-300 leading-relaxed">
+          <p class="mt-3 text-gray-300 leading-relaxed exp-subsummary">
             Design measurable analytics programs, deploy production ML, and embed decision dashboards; develop internal capability via targeted training.
           </p>
 
           <div class="mt-4 grid md:grid-cols-2 gap-5">
             <div>
               <h5 class="text-blue-400 font-semibold mb-2">Key Contributions</h5>
-              <ul class="space-y-2 text-gray-300 leading-relaxed text-justify pl-5 marker:text-blue-400 list-disc">
+              <ul class="space-y-2 text-gray-300 leading-relaxed text-justify pl-5 marker:text-blue-400 list-disc exp-contrib">
                 <li>Co-created KPI frameworks with executives; aligned analytics roadmap to revenue, efficiency, and retention goals.</li>
                 <li>Built ingestion → features → models (forecasting, classification, clustering; NLP/DL where appropriate) with CI/CD and monitoring.</li>
                 <li>Delivered interactive dashboards (Power BI, Tableau, Dash) for leadership & operations, enabling self-serve insights.</li>
@@ -717,13 +757,13 @@ s
             </div>
             <div>
               <h5 class="text-blue-400 font-semibold mb-2">Selected Highlights</h5>
-              <ul class="space-y-2 text-gray-300 leading-relaxed text-justify pl-5 marker:text-blue-400 list-disc">
+              <ul class="space-y-2 text-gray-300 leading-relaxed text-justify pl-5 marker:text-blue-400 list-disc exp-highlights">
                 <li>GCC utility: anomaly detection + forecasting pipeline that informed maintenance and load planning.</li>
                 <li>UK e-commerce: segmentation & propensity models to sharpen targeting and channel mix.</li>
                 <li>Oman SME: cloud-deployed sales forecasting improving inventory & staffing decisions.</li>
               </ul>
               <!-- tech badges -->
-              <ul class="mt-3 flex flex-wrap gap-2" aria-label="Stack">
+              <ul class="mt-3 flex flex-wrap gap-2 exp-badges" aria-label="Stack">
                 <li class="px-2.5 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">Python</li>
                 <li class="px-2.5 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">SQL</li>
                 <li class="px-2.5 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">scikit-learn</li>
@@ -735,22 +775,22 @@ s
         </section>
 
         <!-- CATEGORY: IT & Software Engineering -->
-        <section class="rounded-2xl border border-white/10 p-5 bg-white/5" aria-labelledby="cat-it">
+        <section class="rounded-2xl border border-white/10 p-5 bg-white/5 exp-category" aria-labelledby="cat-it" data-exp-cat="1">
           <div class="flex items-start justify-between gap-4">
             <div>
-              <h4 id="cat-it" class="text-xl font-semibold text-gray-100">IT & Software Engineering</h4>
-              <p class="text-gray-400 text-sm mt-0.5">2010–Present · Full-stack · APIs · Databases · DevOps</p>
+              <h4 id="cat-it" class="text-xl font-semibold text-gray-100 exp-subtitle">IT & Software Engineering</h4>
+              <p class="text-gray-400 text-sm mt-0.5 exp-submeta">2010–Present · Full-stack · APIs · Databases · DevOps</p>
             </div>
           </div>
 
-          <p class="mt-3 text-gray-300 leading-relaxed">
+          <p class="mt-3 text-gray-300 leading-relaxed exp-subsummary">
             Ship secure, scalable platforms and APIs; optimize databases; integrate pragmatic AI features; and operate reliable production systems.
           </p>
 
           <div class="mt-4 grid md:grid-cols-2 gap-5">
             <div>
               <h5 class="text-blue-400 font-semibold mb-2">Key Contributions</h5>
-              <ul class="space-y-2 text-gray-300 leading-relaxed text-justify pl-5 marker:text-blue-400 list-disc">
+              <ul class="space-y-2 text-gray-300 leading-relaxed text-justify pl-5 marker:text-blue-400 list-disc exp-contrib">
                 <li>Developed and maintained full-stack web platforms (Django, PHP, JavaScript, SQL) with robust authentication and performance controls.</li>
                 <li>Designed RESTful APIs with clean contracts and versioning, enabling smooth integration with client apps and partner systems.</li>
                 <li>Optimized databases (schema, indexing, query tuning) to improve speed, scalability, and reliability across multi-tenant environments.</li>
@@ -760,13 +800,13 @@ s
             </div>
             <div>
               <h5 class="text-blue-400 font-semibold mb-2">Selected Highlights</h5>
-              <ul class="space-y-2 text-gray-300 leading-relaxed text-justify pl-5 marker:text-blue-400 list-disc">
+              <ul class="space-y-2 text-gray-300 leading-relaxed text-justify pl-5 marker:text-blue-400 list-disc exp-highlights">
                 <li>Canadian client: multi-tenant SaaS with secure auth and payment integration.</li>
                 <li>UAE SME: real-time customer analytics dashboard driving targeted campaigns.</li>
                 <li>KSA: cloud-scalable e-learning portal supporting high concurrent usage.</li>
               </ul>
               <!-- tech badges -->
-              <ul class="mt-3 flex flex-wrap gap-2" aria-label="Stack">
+              <ul class="mt-3 flex flex-wrap gap-2 exp-badges" aria-label="Stack">
                 <li class="px-2.5 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">Django</li>
                 <li class="px-2.5 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">PHP</li>
                 <li class="px-2.5 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">JavaScript</li>
@@ -795,14 +835,14 @@ s
   </div>
 </article>
     <!-- Job 1: NWC -->
-    <article class="relative pl-10 group transition-transform duration-300 hover:scale-[1.01]">
+    <article class="relative pl-10 group transition-transform duration-300 hover:scale-[1.01]" data-exp="nwc">
       <div class="absolute w-4 h-4 bg-blue-600 rounded-full left-[-10px] top-2.5 ring-4 ring-white dark:ring-gray-900 transition-all group-hover:ring-blue-400"></div>
       <div class="flex flex-col md:flex-row md:justify-between gap-6">
         <div class="md:w-3/4">
-          <h3 class="text-2xl font-semibold text-gray-100 flex items-center gap-2">
+          <h3 class="text-2xl font-semibold text-gray-100 flex items-center gap-2 exp-title">
             Engineering Consultant
           </h3>
-          <p class="text-gray-400 mt-1">National Water Company (NWC), Headquarter, Riyadh, Saudi Arabia</p>
+          <p class="text-gray-400 mt-1 exp-meta">National Water Company (NWC), Headquarter, Riyadh, Saudi Arabia</p>
           <ul class="space-y-2 text-gray-300 leading-relaxed text-justify pl-5 marker:text-blue-400 list-disc">
               <li>Managed financial aspects of nationwide O&M contracts, ensuring SLA compliance, benchmarking, and transparent financial reporting.</li>
               <li>Designed and implemented contract evaluation and scoring systems supporting procurement, cost optimization, and risk mitigation.</li>
@@ -836,18 +876,18 @@ s
 
 
    <!-- Job 4: O&M | NRW Electrical Engineer -->
-<article class="relative pl-10 group transition-transform duration-300 hover:scale-[1.01]" aria-labelledby="role-hcww">
+<article class="relative pl-10 group transition-transform duration-300 hover:scale-[1.01]" aria-labelledby="role-hcww" data-exp="hcww">
   <div class="absolute w-4 h-4 bg-blue-600 rounded-full left-[-10px] top-2.5 ring-4 ring-white dark:ring-gray-900 group-hover:ring-blue-400"></div>
   <div class="flex flex-col md:flex-row md:justify-between gap-6">
     <!-- Left -->
     <div class="md:w-3/4">
-      <h3 id="role-hcww" class="text-2xl font-semibold text-gray-100 flex items-center gap-2">
+      <h3 id="role-hcww" class="text-2xl font-semibold text-gray-100 flex items-center gap-2 exp-title">
         O&M | NRW Engineer
       </h3>
-      <p class="text-gray-400 mt-1">Holding Company for Water and Wastewater – Cairo</p>
+      <p class="text-gray-400 mt-1 exp-meta">Holding Company for Water and Wastewater – Cairo</p>
 
       <!-- Summary -->
-      <p class="mt-3 text-gray-300 leading-relaxed text-justify">
+      <p class="mt-3 text-gray-300 leading-relaxed text-justify exp-summary">
         Oversaw nationwide Water Operations & Maintenance Business Plans and NRW reduction programs across 25 affiliated companies. 
         Directed DMA strategy, SCADA/GIS integration, quality inspections, and subcontractor management while enabling staff through 
         training and toolkits. Contributed to donor-funded initiatives (USAID, GIZ, EU, VNG) that advanced Egypt’s NRW strategy.
@@ -902,16 +942,16 @@ s
 </article>
 
 <!-- Job 5: O&M Electrical Engineer – Damietta -->
-<article class="relative pl-10 group transition-transform duration-300 hover:scale-[1.01]" aria-labelledby="role-damietta">
+<article class="relative pl-10 group transition-transform duration-300 hover:scale-[1.01]" aria-labelledby="role-damietta" data-exp="damietta">
   <div class="absolute w-4 h-4 bg-blue-600 rounded-full left-[-10px] top-2.5 ring-4 ring-white dark:ring-gray-900 group-hover:ring-blue-400"></div>
   <div class="flex flex-col md:flex-row md:justify-between gap-6">
     <div class="md:w-3/4">
-      <h3 id="role-damietta" class="text-2xl font-semibold text-gray-100 flex items-center gap-2">
+      <h3 id="role-damietta" class="text-2xl font-semibold text-gray-100 flex items-center gap-2 exp-title">
         O&M | NRW Engineer
       </h3>
-      <p class="text-gray-400 mt-1">Damietta Water and Wastewater Company – Damietta</p>
+      <p class="text-gray-400 mt-1 exp-meta">Damietta Water and Wastewater Company – Damietta</p>
 
-      <p class="mt-3 text-gray-300 leading-relaxed text-justify">
+      <p class="mt-3 text-gray-300 leading-relaxed text-justify exp-summary">
         Contributed to strategic leakage detection, pump installations, and technical studies for DMA optimization. 
         Chaired committees overseeing wastewater projects, pump evaluations, and annual maintenance for rainwater networks.
       </p>
@@ -931,16 +971,16 @@ s
 </article>
 
 <!-- Job 6: Maintenance Electrical Engineer – Cairo -->
-<article class="relative pl-10 group transition-transform duration-300 hover:scale-[1.01]" aria-labelledby="role-cairo">
+<article class="relative pl-10 group transition-transform duration-300 hover:scale-[1.01]" aria-labelledby="role-cairo" data-exp="cairo">
   <div class="absolute w-4 h-4 bg-blue-600 rounded-full left-[-10px] top-2.5 ring-4 ring-white dark:ring-gray-900 group-hover:ring-blue-400"></div>
   <div class="flex flex-col md:flex-row md:justify-between gap-6">
     <div class="md:w-3/4">
-      <h3 id="role-cairo" class="text-2xl font-semibold text-gray-100 flex items-center gap-2">
+      <h3 id="role-cairo" class="text-2xl font-semibold text-gray-100 flex items-center gap-2 exp-title">
         O&M | NRW Engineer
       </h3>
-      <p class="text-gray-400 mt-1">Greater Cairo Water Company – Cairo</p>
+      <p class="text-gray-400 mt-1 exp-meta">Greater Cairo Water Company – Cairo</p>
 
-      <p class="mt-3 text-gray-300 leading-relaxed text-justify">
+      <p class="mt-3 text-gray-300 leading-relaxed text-justify exp-summary">
         Specialized in flow/pressure calibration, SCADA integration, and active leakage control across treatment plants and distribution systems.
       </p>
       <ul class="space-y-2 text-gray-300 leading-relaxed text-justify pl-5 marker:text-blue-400 list-disc">
@@ -974,7 +1014,7 @@ s
 <section id="certifications" class="mb-20">
   <!-- Header -->
   <header class="mb-10">
-    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white relative inline-block">
+    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white relative inline-block" data-i18n="certifications.heading">
       Certifications
       <span class="absolute -bottom-2 left-0 h-1 w-28 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 rounded"></span>
     </h3>
@@ -984,7 +1024,7 @@ s
   <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
     <!-- AI & Data Science -->
-    <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-6 shadow-sm hover:shadow-lg transition-all">
+    <article class="group cert-card relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-6 shadow-sm hover:shadow-lg transition-all">
       <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500"></div>
 
       <header class="flex items-center gap-3 mb-5">
@@ -1131,7 +1171,7 @@ s
     </article>
 
     <!-- Water Sector & Utilities -->
-    <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-6 shadow-sm hover:shadow-lg transition-all">
+    <article class="group cert-card relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-6 shadow-sm hover:shadow-lg transition-all">
       <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-500"></div>
 
       <header class="flex items-center gap-3 mb-5">
@@ -1191,7 +1231,7 @@ s
     </article>
 
     <!-- Project Management -->
-    <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-6 shadow-sm hover:shadow-lg transition-all">
+    <article class="group cert-card relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 p-6 shadow-sm hover:shadow-lg transition-all">
       <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-green-500"></div>
 
       <header class="flex items-center gap-3 mb-5">
@@ -1241,7 +1281,7 @@ s
 
   <!-- Header -->
   <header class="relative mb-10">
-    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white inline-block relative">
+    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white inline-block relative" data-i18n="education.heading">
       Education
       <span class="absolute -bottom-2 left-0 h-1 w-28 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 rounded"></span>
     </h3>
@@ -1255,7 +1295,7 @@ s
     <div class="space-y-14">
 
       <!-- Degree 1: Executive MBA -->
-      <article class="relative pl-10 group">
+      <article class="relative pl-10 group edu-card" data-edu="emba">
         <!-- node -->
         <span class="absolute left-[-10px] top-2.5 h-4 w-4 rounded-full bg-blue-600 ring-4 ring-white dark:ring-gray-900 transition-all group-hover:ring-blue-400"></span>
 
@@ -1263,19 +1303,19 @@ s
           <!-- Content -->
           <div class="md:w-3/4">
             <div class="flex items-center gap-2 flex-wrap">
-              <h4 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+              <h4 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 edu-title">
                 Executive MBA & Level 7 Diploma in Business Management
               </h4>
-              <span class="inline-flex items-center rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-2.5 py-0.5 text-xs font-medium">
+              <span class="inline-flex items-center rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-2.5 py-0.5 text-xs font-medium edu-status">
                 In Progress
               </span>
             </div>
-            <p class="text-gray-500 dark:text-gray-400 mt-1">
+            <p class="text-gray-500 dark:text-gray-400 mt-1 edu-meta">
               Cardiff Institute, United Kingdom
             </p>
 
             <!-- Highlights -->
-            <ul class="mt-4 space-y-2 text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+            <ul class="mt-4 space-y-2 text-gray-700 dark:text-gray-300 leading-relaxed text-sm edu-bullets">
               <li class="flex gap-2">
                 <span class="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500"></span>
                 Strategic leadership, innovation, and organizational transformation.
@@ -1291,7 +1331,7 @@ s
             </ul>
 
             <!-- Tags -->
-            <div class="mt-4 flex flex-wrap gap-2">
+            <div class="mt-4 flex flex-wrap gap-2 edu-tags">
               <span class="px-2.5 py-1 text-xs rounded-full border border-blue-500/30 text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/20">Finance & Strategy</span>
               <span class="px-2.5 py-1 text-xs rounded-full border border-indigo-500/30 text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-900/20">Digital Transformation</span>
               <span class="px-2.5 py-1 text-xs rounded-full border border-purple-500/30 text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-900/20">Analytics & GenAI</span>
@@ -1313,22 +1353,22 @@ s
       </article>
 
       <!-- Degree 2: Cairo University -->
-      <article class="relative pl-10 group">
+      <article class="relative pl-10 group edu-card" data-edu="bsc">
         <!-- node -->
         <span class="absolute left-[-10px] top-2.5 h-4 w-4 rounded-full bg-blue-600 ring-4 ring-white dark:ring-gray-900 transition-all group-hover:ring-blue-400"></span>
 
         <div class="flex flex-col md:flex-row md:justify-between gap-6">
           <!-- Content -->
           <div class="md:w-3/4">
-            <h4 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+            <h4 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 edu-title">
               B.Sc. Electronics & Electrical Communications Engineering
             </h4>
-            <p class="text-gray-500 dark:text-gray-400 mt-1">
+            <p class="text-gray-500 dark:text-gray-400 mt-1 edu-meta">
               Faculty of Engineering, Cairo University
             </p>
 
             <!-- Highlights -->
-            <ul class="mt-4 space-y-2 text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+            <ul class="mt-4 space-y-2 text-gray-700 dark:text-gray-300 leading-relaxed text-sm edu-bullets">
               <li class="flex gap-2">
                 <span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
                 Graduation project: biomedical wireless sensor system for ECG monitoring of heart patients.
@@ -1340,7 +1380,7 @@ s
             </ul>
 
             <!-- Tags -->
-            <div class="mt-4 flex flex-wrap gap-2">
+            <div class="mt-4 flex flex-wrap gap-2 edu-tags">
               <span class="px-2.5 py-1 text-xs rounded-full border border-indigo-500/30 text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-900/20">Embedded Systems</span>
               <span class="px-2.5 py-1 text-xs rounded-full border border-purple-500/30 text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-900/20">Signal Processing</span>
               <span class="px-2.5 py-1 text-xs rounded-full border border-fuchsia-500/30 text-fuchsia-700 dark:text-fuchsia-300 bg-fuchsia-50 dark:bg-fuchsia-900/20">Wireless IoT</span>
@@ -1373,7 +1413,7 @@ s
 
   <!-- Header -->
   <header class="relative mb-10">
-    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white inline-block relative">
+    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white inline-block relative" data-i18n="memberships.heading">
       Memberships
       <span class="absolute -bottom-2 left-0 h-1 w-28 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 rounded"></span>
     </h3>
@@ -1383,7 +1423,7 @@ s
   <div class="relative grid gap-6 md:grid-cols-2 xl:grid-cols-3">
 
     <!-- Card: ALX Africa -->
-    <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white/90 dark:bg-gray-800/80 backdrop-blur p-6 shadow-sm hover:shadow-xl transition-all duration-300">
+    <article class="group membership-card relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white/90 dark:bg-gray-800/80 backdrop-blur p-6 shadow-sm hover:shadow-xl transition-all duration-300">
       <!-- top accent -->
       <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500"></div>
 
@@ -1398,7 +1438,7 @@ s
         <div class="min-w-0">
           <div class="flex items-center gap-2 flex-wrap">
             <h4 class="text-2xl font-semibold text-gray-900 dark:text-white">ALX Africa</h4>
-            <span class="inline-flex items-center rounded-full bg-gray-100 dark:bg-white/10 px-2.5 py-0.5 text-xs font-medium text-gray-700 dark:text-gray-300">
+            <span class="inline-flex items-center rounded-full bg-gray-100 dark:bg-white/10 px-2.5 py-0.5 text-xs font-medium text-gray-700 dark:text-gray-300 membership-badge">
               Fellowship Member
             </span>
           </div>
@@ -1406,7 +1446,7 @@ s
           <div class="mt-3 flex flex-wrap items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
             <span class="inline-flex items-center gap-1">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3M5 11h14M5 19h14M5 11v10a2 2 0 002 2h10a2 2 0 002-2V11"/></svg>
-              Member since <span class="ml-1">2023</span>
+              <span class="member-label">Member since</span> <span class="ml-1 member-year">2023</span>
             </span>
             <!-- Optional: ID or link -->
             <!-- <a href="#" class="underline decoration-dotted underline-offset-2 hover:text-blue-600">View profile</a> -->
@@ -1416,7 +1456,7 @@ s
     </article>
 
     <!-- Card: Society of Civil Engineers (SCE) -->
-    <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white/90 dark:bg-gray-800/80 backdrop-blur p-6 shadow-sm hover:shadow-xl transition-all duration-300">
+    <article class="group membership-card relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white/90 dark:bg-gray-800/80 backdrop-blur p-6 shadow-sm hover:shadow-xl transition-all duration-300">
       <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-500"></div>
 
       <div class="flex items-start gap-4">
@@ -1428,14 +1468,14 @@ s
         <div class="min-w-0">
           <div class="flex items-center gap-2 flex-wrap">
             <h4 class="text-2xl font-semibold text-gray-900 dark:text-white">Saudi Council of Engineers (SCE)</h4>
-            <span class="inline-flex items-center rounded-full bg-gray-100 dark:bg-white/10 px-2.5 py-0.5 text-xs font-medium text-gray-700 dark:text-gray-300">
+            <span class="inline-flex items-center rounded-full bg-gray-100 dark:bg-white/10 px-2.5 py-0.5 text-xs font-medium text-gray-700 dark:text-gray-300 membership-badge">
               Professional Engineer
             </span>
           </div>
           <div class="mt-3 flex flex-wrap items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
             <span class="inline-flex items-center gap-1">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3M5 11h14M5 19h14M5 11v10a2 2 0 002 2h10a2 2 0 002-2V11"/></svg>
-              Member since <span class="ml-1">2024</span>
+              <span class="member-label">Member since</span> <span class="ml-1 member-year">2024</span>
             </span>
             <!-- <span class="inline-flex items-center gap-1"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 4v16m8-8H4"/></svg> ID: SCE-XXXX</span> -->
           </div>
@@ -1444,7 +1484,7 @@ s
     </article>
 
     <!-- Card: Egyptian Engineers Syndicate (EES) -->
-    <article class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white/90 dark:bg-gray-800/80 backdrop-blur p-6 shadow-sm hover:shadow-xl transition-all duration-300">
+    <article class="group membership-card relative overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white/90 dark:bg-gray-800/80 backdrop-blur p-6 shadow-sm hover:shadow-xl transition-all duration-300">
       <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500"></div>
 
       <div class="flex items-start gap-4">
@@ -1456,14 +1496,14 @@ s
         <div class="min-w-0">
           <div class="flex items-center gap-2 flex-wrap">
             <h4 class="text-2xl font-semibold text-gray-900 dark:text-white">Egyptian Engineers Syndicate (EES)</h4>
-            <span class="inline-flex items-center rounded-full bg-gray-100 dark:bg-white/10 px-2.5 py-0.5 text-xs font-medium text-gray-700 dark:text-gray-300">
+            <span class="inline-flex items-center rounded-full bg-gray-100 dark:bg-white/10 px-2.5 py-0.5 text-xs font-medium text-gray-700 dark:text-gray-300 membership-badge">
               Registered Engineer
             </span>
           </div>
           <div class="mt-3 flex flex-wrap items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
             <span class="inline-flex items-center gap-1">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3M5 11h14M5 19h14M5 11v10a2 2 0 002 2h10a2 2 0 002-2V11"/></svg>
-              Member since <span class="ml-1">2011</span>
+              <span class="member-label">Member since</span> <span class="ml-1 member-year">2011</span>
             </span>
             <!-- <span class="inline-flex items-center gap-1">ID: EES-XXXX</span> -->
           </div>
@@ -1478,7 +1518,7 @@ s
 <!-- Languages Section -->
 <section id="languages" class="mb-24">
   <header class="mb-12">
-    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white relative inline-block">
+    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white relative inline-block" data-i18n="languages.heading">
       Languages
       <span class="absolute -bottom-2 left-0 h-1 w-28 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 rounded"></span>
     </h3>
@@ -1487,7 +1527,7 @@ s
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
 
     <!-- Arabic -->
-    <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition duration-300">
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition duration-300 language-card" data-lang-card="ar">
       <div class="flex items-center gap-4 mb-4">
         <span class="text-3xl">🇪🇬</span>
         <div>
@@ -1502,7 +1542,7 @@ s
     </div>
 
     <!-- English -->
-    <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition duration-300">
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition duration-300 language-card" data-lang-card="en">
       <div class="flex items-center gap-4 mb-4">
         <span class="text-3xl">🇬🇧</span>
         <div>
@@ -1532,7 +1572,7 @@ s
 <section id="case-studies" class="relative py-28">
 
   <div class="text-center mb-12">
-    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white inline-block relative">
+    <h3 class="text-4xl font-extrabold text-gray-900 dark:text-white inline-block relative" data-i18n="case.heading">
       Highlighted Projects
       <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-blue-500 rounded"></span>
     </h3>
@@ -1540,7 +1580,7 @@ s
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 text-left">
 
     <!-- 1. O&M Contracts Bundling System -->
-    <article class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+    <article class="group case-card relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
       <div class="absolute top-0 left-0 w-1 h-full bg-indigo-500 rounded-l-2xl"></div>
       <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-indigo-600 transition">
         O&M Contracts Bundling System
@@ -1556,7 +1596,7 @@ s
     </article>
 
     <!-- 2. Road Safety Dashboard -->
-    <article class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+    <article class="group case-card relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
       <div class="absolute top-0 left-0 w-1 h-full bg-emerald-500 rounded-l-2xl"></div>
       <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-emerald-600 transition">
         Road Safety Dashboard
@@ -1572,7 +1612,7 @@ s
     </article>
 
     <!-- 3. Online Ordering System -->
-    <article class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+    <article class="group case-card relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
       <div class="absolute top-0 left-0 w-1 h-full bg-amber-500 rounded-l-2xl"></div>
       <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-amber-600 transition">
         Online Ordering System
@@ -1588,7 +1628,7 @@ s
     </article>
 
     <!-- 4. NRW Reduction Phase (VNG) -->
-    <article class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+    <article class="group case-card relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
       <div class="absolute top-0 left-0 w-1 h-full bg-sky-500 rounded-l-2xl"></div>
       <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-sky-600 transition">
         NRW Reduction Phase
@@ -1604,7 +1644,7 @@ s
     </article>
 
     <!-- 5. National NRW Program (USAID) -->
-    <article class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+    <article class="group case-card relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
       <div class="absolute top-0 left-0 w-1 h-full bg-blue-500 rounded-l-2xl"></div>
       <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 transition">
         National NRW Program
@@ -1620,7 +1660,7 @@ s
     </article>
 
     <!-- 6. DMA Establishment (GIZ) -->
-    <article class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+    <article class="group case-card relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
       <div class="absolute top-0 left-0 w-1 h-full bg-fuchsia-500 rounded-l-2xl"></div>
       <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-fuchsia-600 transition">
         DMA Establishment
@@ -1636,7 +1676,7 @@ s
     </article>
 
     <!-- 7. Technical Support (EU) -->
-    <article class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+    <article class="group case-card relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
       <div class="absolute top-0 left-0 w-1 h-full bg-teal-500 rounded-l-2xl"></div>
       <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-teal-600 transition">
         Technical Support for NRW Reduction
@@ -1652,7 +1692,7 @@ s
     </article>
 
     <!-- 8. AI E-Commerce Platform (Canada) -->
-    <article class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+    <article class="group case-card relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
       <div class="absolute top-0 left-0 w-1 h-full bg-rose-500 rounded-l-2xl"></div>
       <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-rose-600 transition">
         AI-Powered E-Commerce Platform
@@ -1668,7 +1708,7 @@ s
     </article>
 
     <!-- 9. YOLO Person Detection (RMIT) -->
-    <article class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+    <article class="group case-card relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
       <div class="absolute top-0 left-0 w-1 h-full bg-orange-500 rounded-l-2xl"></div>
       <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-orange-600 transition">
         YOLO Person Detection
@@ -1684,7 +1724,7 @@ s
     </article>
 
     <!-- 10. NRW Feasibility Study (EU) -->
-    <article class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+    <article class="group case-card relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
       <div class="absolute top-0 left-0 w-1 h-full bg-violet-500 rounded-l-2xl"></div>
       <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-violet-600 transition">
         National NRW Feasibility Study
@@ -1700,7 +1740,7 @@ s
     </article>
 
     <!-- 11. DMA Monitoring (KfW/Dorsch) -->
-    <article class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+    <article class="group case-card relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
       <div class="absolute top-0 left-0 w-1 h-full bg-cyan-500 rounded-l-2xl"></div>
       <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-cyan-600 transition">
         Smart DMA Monitoring
@@ -1716,7 +1756,7 @@ s
     </article>
 
     <!-- 12. Network Strategy Development (EU) -->
-    <article class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+    <article class="group case-card relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
       <div class="absolute top-0 left-0 w-1 h-full bg-pink-500 rounded-l-2xl"></div>
       <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-pink-600 transition">
         Network Strategy Development
@@ -1739,7 +1779,7 @@ s
   <div class="max-w-6xl mx-auto px-6">
     
     <header class="mb-16 text-center">
-      <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white relative inline-block">
+      <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white relative inline-block" data-i18n="courses.heading">
         Top Delivered Trainings
         <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-1 w-32 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 rounded"></span>
       </h2>
@@ -1748,7 +1788,7 @@ s
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
 
   <!-- Digital Transformation in Utilities -->
-  <div class="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-blue-500">
+  <div class="group training-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-blue-500">
     <div class="flex flex-col items-center text-center space-y-2">
       <div class="text-4xl">💧</div>
       <h3 class="text-xl font-semibold text-gray-800 dark:text-white group-hover:text-blue-600 transition">
@@ -1761,7 +1801,7 @@ s
   </div>
 
   <!-- Non-Revenue Water Reduction -->
-  <div class="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-blue-500">
+  <div class="group training-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-blue-500">
     <div class="flex flex-col items-center text-center space-y-2">
       <div class="text-4xl">📉</div>
       <h3 class="text-xl font-semibold text-gray-800 dark:text-white group-hover:text-blue-600 transition">
@@ -1774,7 +1814,7 @@ s
   </div>
 
   <!-- Data Analysis & AI for Utilities -->
-  <div class="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-blue-500">
+  <div class="group training-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-blue-500">
     <div class="flex flex-col items-center text-center space-y-2">
       <div class="text-4xl">🧠</div>
       <h3 class="text-xl font-semibold text-gray-800 dark:text-white group-hover:text-blue-600 transition">
@@ -1787,7 +1827,7 @@ s
   </div>
 
   <!-- Explainable AI & Ethics -->
-  <div class="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-blue-500">
+  <div class="group training-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-blue-500">
     <div class="flex flex-col items-center text-center space-y-2">
       <div class="text-4xl">🤖</div>
       <h3 class="text-xl font-semibold text-gray-800 dark:text-white group-hover:text-blue-600 transition">
@@ -1800,7 +1840,7 @@ s
   </div>
 
   <!-- Performance Optimization -->
-  <div class="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-blue-500">
+  <div class="group training-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-blue-500">
     <div class="flex flex-col items-center text-center space-y-2">
       <div class="text-4xl">📊</div>
       <h3 class="text-xl font-semibold text-gray-800 dark:text-white group-hover:text-blue-600 transition">
@@ -1813,7 +1853,7 @@ s
   </div>
 
   <!-- Sustainability & Net-Zero -->
-  <div class="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-blue-500">
+  <div class="group training-card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-blue-500">
     <div class="flex flex-col items-center text-center space-y-2">
       <div class="text-4xl">🌍</div>
       <h3 class="text-xl font-semibold text-gray-800 dark:text-white group-hover:text-blue-600 transition">
@@ -1836,7 +1876,7 @@ s
   <div class="max-w-7xl mx-auto px-6">
     <!-- Header -->
     <header class="mb-16 text-center">
-      <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white relative inline-block">
+      <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white relative inline-block" data-i18n="gallery.heading">
         Gallery of Moments
         <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-1 w-32 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 rounded"></span>
       </h2>
@@ -2090,8 +2130,8 @@ s
 
 <section id="contact" class="py-24 bg-gradient-to-b from-blue-50 to-white dark:from-gray-950 dark:to-gray-900">
   <div class="max-w-3xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Let’s Connect</h2>
-    <p class="text-lg text-gray-600 dark:text-gray-300 mb-10">
+    <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4" data-i18n="contact.heading">Let’s Connect</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-300 mb-10" data-i18n="contact.subhead">
       Connect with me directly on your preferred platform.
     </p>
 
@@ -2151,24 +2191,1219 @@ s
 </button>
 
     <!-- Footer -->
-    <footer class="text-center py-6 text-sm bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400">
+    <footer class="text-center py-6 text-sm bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400" data-i18n="footer.copy">
       © 2025 Mohamed El-Mansy. All rights reserved.
     </footer>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    const translations = {
+      en: {
+        nav: ["Home", "About", "Services", "Portfolio", "Projects", "Gallery", "Hire Me"],
+        languageLabel: "Language",
+        hero: {
+          title: 'Empowering Data-Driven Excellence<br/><span class="text-blue-600 dark:text-blue-400">Across MENA & Beyond</span>',
+          lines: [
+            "Consultant & Trainer | PMO & Corporate Governance Lead",
+            "Project Management & Compliance | Policies · SOPs · SMPs · DoA",
+            "Senior Data Scientist | Data-Driven Strategy | GenAI · MLOps · BI · Python",
+            "Digital Transformation · O&M · NRW Expert | ML Automation",
+            "Building Governance Frameworks | Enabling Data-Driven Excellence"
+          ],
+          badges: [
+            "15+ Years Experience",
+            "1700+ Hours Training",
+            "AI & Data Science",
+            "Digital Transformation",
+            "Water Utilities",
+            "17.3 Linkedin Followers"
+          ],
+          ctas: {
+            hire: "Hire Me",
+            services: "Explore Services",
+            cv: "Show CV"
+          }
+        },
+        about: {
+          heading: "Meet Your Professional",
+          stats: ["Projects Done", "Professionals Trained", "Countries Reached", "Satisfaction Rate"],
+          paragraphs: [
+            "I’m <strong>Mohamed El-Mansy</strong>, a <strong>Project Consultant, and Digital Transformation Leader</strong> with over <strong>14 years of international experience</strong> delivering large-scale <strong>funded development programs</strong> and advanced <strong>AI-driven solutions</strong> across Egypt, Saudi Arabia, UAE, and Oman.",
+            "My expertise spans <strong>private sector development, SME competitiveness, and investment facilitation</strong>, with a proven record in <strong>donar projects</strong> supporting Non-Revenue Water Management, economic growth, infrastructure, and sustainability. I am adept at <strong>policy dialogue</strong> with governments, financial institutions, and private sector stakeholders, aligning development priorities with actionable strategies.",
+            "As a <strong>Senior Data Scientist & Consultant</strong>, I specialize in <strong>Python</strong>, <strong>cloud analytics</strong>, <strong>GenAI</strong>, and <strong>explainable AI (XAI)</strong>. I design and deploy <strong>LLM-powered tools</strong>, scalable AI products, intelligent dashboards, and <strong>self-serve BI platforms</strong> using Python, SQL, Power BI, and NLP, helping organizations streamline KPIs, automate compliance, and reduce inefficiencies.",
+            "My portfolio includes leadership in <strong>MLOps, model governance, and ethical AI</strong>, delivery of over <strong>1,700 hours of technical training</strong>, and facilitation of stakeholder engagement in <strong>data-driven legal, tax, and compliance transformation projects</strong>.",
+            "Currently pursuing an <strong>Executive Master of Business Administration (Cardiff Institute, UK)</strong>, I bridge <strong>policy, finance, and technology</strong> to foster <strong>public-private partnerships</strong> and drive sustainable, innovation-led growth under the <strong>EU Global Gateway framework</strong>."
+          ]
+        },
+        services: {
+          heading: "Professional Services",
+          subhead: "End-to-end delivery across strategy, data, and execution — designed for measurable impact and enterprise reliability.",
+          values: [
+            "Strategy → Delivery → Adoption",
+            "Compliance & Governance by design",
+            "Enterprise-grade reliability"
+          ],
+          cards: [
+            {
+              title: "Project Management",
+              desc: "Lead strategic, AI-enabled programs from discovery to rollout, aligning exec priorities, risk, and delivery.",
+              bullets: [
+                "Roadmaps, OKRs, budgets, and vendor management",
+                "Agile PMO, RAID logs, stakeholder governance",
+                "Change management & adoption playbooks"
+              ]
+            },
+            {
+              title: "Strategic Planning",
+              desc: "Design utility, analytics, and digital strategies that connect policy, finance, and technology to business outcomes.",
+              bullets: [
+                "Operating models, KPI frameworks, data strategy",
+                "EU/Donor programs, PPP design, Global Gateway alignment",
+                "Risk, compliance, and governance by default"
+              ]
+            },
+            {
+              title: "Professional Training",
+              desc: "1,700+ hours delivered — bespoke curricula in AI, BI, Python, data visualization, and executive data literacy.",
+              bullets: [
+                "Hands-on labs & capstone projects",
+                "Onsite & remote delivery across MENA/EU",
+                "Playbooks, templates, and after-action support"
+              ]
+            },
+            {
+              title: "BI Dashboards",
+              desc: "Executive-grade analytics in Power BI, Tableau, and Python — turning raw data into decisions.",
+              bullets: [
+                "DAX/Dataflows, governance & access control",
+                "KPI automation & operational reporting",
+                "Legal/compliance analytics where required"
+              ]
+            },
+            {
+              title: "Data Analysis",
+              desc: "Build predictive scoring, CBA models, and KPI suites that guide tactical and strategic decisions.",
+              bullets: [
+                "Hypothesis testing, segmentation, time-series",
+                "Data quality assessments & KPI rationalization",
+                "Executive storytelling & data narratives"
+              ]
+            },
+            {
+              title: "Automation",
+              desc: "AI-powered portals and workflows for data collection, reporting, and compliance — built for scale.",
+              bullets: [
+                "RPA & API orchestration, event-driven jobs",
+                "Form pipelines, validation, and audit trails",
+                "Self-serve tools for non-technical users"
+              ]
+            }
+          ],
+          ctas: { proposal: "Get a Proposal", projects: "View Projects" }
+        },
+        portfolio: { heading: "Portfolio" },
+        skills: {
+          heading: "Skill Domains",
+          cards: [
+            { title: "Data Engineering & Big Data", bullets: ["Cloudera CDP (HDFS, Hive, Impala, Oozie)", "Apache Spark, PySpark", "Informatica DEI/EDC", "Airflow, Kafka", "ETL Pipelines, Data Modeling"] },
+            { title: "Programming & Automation", bullets: ["Python (Pandas, NumPy, Scikit-learn)", "SQL, PySpark", "RESTful APIs, Workflow Automation", "Git, API Integration", "Data Quality Scripts"] },
+            { title: "Cloud & Infrastructure", bullets: ["AWS, Azure, GCP", "On-prem Deployment", "DataOps, CI/CD", "Cloud-to-OnPrem Integration", "Change Data Capture (CDC)"] },
+            { title: "Machine Learning & Analytics", bullets: ["Regression, Classification, Clustering", "Forecasting, Model Deployment", "MLOps Collaboration, XAI", "Feature Store Design", "Model Monitoring, Prompt Engineering"] },
+            { title: "BI & Dashboards", bullets: ["Power BI (DAX, Dataflows)", "Tableau, Rationalization", "KPI Automation", "Operational & Legal Analytics"] },
+            { title: "Governance & Ethics", bullets: ["Responsible AI, Data Contracts", "Data Privacy, Compliance", "Blockchain for Finance", "Metadata Governance", "Audit-Ready Pipelines"] },
+            { title: "Domain Expertise", bullets: ["SCADA, GIS", "Primavera P6, MS Project", "Utility Infrastructure Analytics", "NRW Control, DMA Zoning", "Contracts Evaluation"] },
+            { title: "Leadership & Delivery", bullets: ["Technical Mentorship, Stakeholder Engagement", "AI-Driven HR, ChatGPT for Business", "Innovation Management", "Agile Delivery, O&M Strategy", "1700+ Hours of Technical Training"] }
+          ]
+        },
+        experience: { heading: "Professional Experience" },
+        experienceCards: [
+          {
+            key: "freelance",
+            title: "Freelancing",
+            meta: "Global clients · Remote & Onsite (EG, KSA, UAE, OM, UK, CA)",
+            summary: "Independent consultant delivering high-impact solutions across analytics, software, and training from discovery to adoption.",
+            statsLabels: ["Years", "Regions", "Engagements", "Enablement"],
+            statsValues: ["2010–Present", "MENA · Europe · North America", "Projects · Retainers · Workshops", "5000+ trainees"],
+            categories: [
+              {
+                title: "Data Consultant & Scientist / Analyst & Trainer",
+                meta: "2020–Present · KPI strategy · ML/NLP · Dashboards · Upskilling",
+                summary: "Design measurable analytics programs, deploy production ML, and embed decision dashboards; develop internal capability via targeted training.",
+                contributions: [
+                  "Co-created KPI frameworks with executives; aligned analytics roadmap to revenue, efficiency, and retention goals.",
+                  "Built ingestion → features → models (forecasting, classification, clustering; NLP/DL where appropriate) with CI/CD and monitoring.",
+                  "Delivered interactive dashboards (Power BI, Tableau, Dash) for leadership & operations, enabling self-serve insights.",
+                  "Established standards for data quality, documentation, and reproducibility; automated workflows with Python/SQL.",
+                  "Trained and mentored 500+ professionals in Python, statistics, and applied ML; authored hands-on playbooks."
+                ],
+                highlights: [
+                  "GCC utility: anomaly detection + forecasting pipeline that informed maintenance and load planning.",
+                  "UK e-commerce: segmentation & propensity models to sharpen targeting and channel mix.",
+                  "Oman SME: cloud-deployed sales forecasting improving inventory & staffing decisions."
+                ],
+                badges: ["Python", "SQL", "scikit-learn", "Power BI · Tableau · Dash", "AWS/GCP"]
+              },
+              {
+                title: "IT & Software Engineering",
+                meta: "2010–Present · Full-stack · APIs · Databases · DevOps",
+                summary: "Ship secure, scalable platforms and APIs; optimize databases; integrate pragmatic AI features; and operate reliable production systems.",
+                contributions: [
+                  "Developed and maintained full-stack web platforms (Django, PHP, JavaScript, SQL) with robust authentication and performance controls.",
+                  "Designed RESTful APIs with clean contracts and versioning, enabling smooth integration with client apps and partner systems.",
+                  "Optimized databases (schema, indexing, query tuning) to improve speed, scalability, and reliability across multi-tenant environments.",
+                  "Integrated applied AI features (image recognition, customer behavior analytics) to enhance UX and drive engagement.",
+                  "Managed IT operations: server deployment, CI/CD pipelines, monitoring, and incident response for diverse clients."
+                ],
+                highlights: [
+                  "Canadian client: multi-tenant SaaS with secure auth and payment integration.",
+                  "UAE SME: real-time customer analytics dashboard driving targeted campaigns.",
+                  "KSA: cloud-scalable e-learning portal supporting high concurrent usage."
+                ],
+                badges: ["Django", "PHP", "JavaScript", "MySQL · PostgreSQL", "Docker · Git · CI/CD", "APM · Observability"]
+              }
+            ]
+          },
+          {
+            key: "nwc",
+            title: "Engineering Consultant",
+            meta: "National Water Company (NWC), Headquarter, Riyadh, Saudi Arabia",
+            bullets: [
+              "Managed financial aspects of nationwide O&M contracts, ensuring SLA compliance, benchmarking, and transparent financial reporting.",
+              "Designed and implemented contract evaluation and scoring systems supporting procurement, cost optimization, and risk mitigation.",
+              "Established compliance frameworks for financial reporting, tax obligations, and audit readiness, aligning with regulatory requirements.",
+              "Developed automated dashboards and analytics for contract performance, vendor payments, and FKPIs, accelerating reporting by 40%.",
+              "Built AI-driven pipelines for cost deviation detection and financial risk modeling, strengthening governance and accountability.",
+              "Led contract management and evaluation frameworks across nationwide O&M programs, developing scoring models, KPI-based dashboards, and SLA compliance systems used for vendor performance benchmarking.",
+              "Negotiated with contractors and internal stakeholders to ensure alignment with contractual obligations and accelerating approvals by 25%.",
+              "Deployed AI solutions for predictive maintenance, increasing asset uptime by 22%.",
+              "Built centralized data platforms and automated KPI dashboards, SLA benchmarking tools, and operational and legal analytics visualizations, improving reporting speed by 40%.",
+              "Established PMO processes for governance, compliance reporting, and executive dashboards, ensuring transparency and alignment with strategic objectives.",
+              "Designed contract evaluation tools (spider charts, scoring models) used across the kingdom.",
+              "Developed RESTful APIs for secure data exchange and automation workflows.",
+              "Ensured analytics delivery aligned with data privacy regulations and client-sensitive data standards across regulated domains.",
+              "Developed ETL pipelines using Informatica DEI/EDC for metadata management and data lineage in compliance environments.",
+              "Built and deployed LLM-based agents using Langchain for automated KPI generation.",
+              "Trained 100+ staff on O&M workflows, KPI-driven contract evaluation, tax reporting, and data governance compliance.",
+              "Enabled AI-driven pipelines for predictive asset risk modeling and cost deviation detection.",
+              "Launched a stakeholder-friendly web system for O&M data sharing and tracking."
+            ]
+          },
+          {
+            key: "hcww",
+            title: "O&M | NRW Engineer",
+            meta: "Holding Company for Water and Wastewater – Cairo",
+            summary: "Oversaw nationwide O&M and NRW programs, DMA strategy, SCADA/GIS integration, and donor-funded initiatives.",
+            bullets: [
+              "Designed and executed O&M Business Plans and enabling projects, supervising both internal teams and subcontractors.",
+              "Directed inspections and qualification of water treatment plants for TSM certification.",
+              "Implemented NRW projects (DMA/DMZ, leak detection, pressure management) and led crisis preparedness initiatives.",
+              "Produced monthly/annual performance reports against KPIs, integrating field inspection results.",
+              "Managed operational budgets, water distribution continuity, and subcontractor planning.",
+              "Fostered collaboration with NWC entities, local authorities, and international donors.",
+              "Introduced innovative inspection and leakage detection methods, staying aligned with global best practices.",
+              "NRW Reduction Phase (VNG, 2023–2024): Strengthened O&M practices to reduce NRW through advanced technologies.",
+              "NRW Reduction Section (USAID, 2019–2024): Delivered system-wide leakage control and O&M efficiency upgrades.",
+              "DMAs Establishments (GIZ, 2018–2024): Defined DMAs via data-driven field investigations and leakage planning.",
+              "Technical Support – Alexandria (EU, 2019–2023): Provided NRW reduction support and optimization of O&M practices.",
+              "National NRW Program Feasibility (EU, 2019–2022): Conducted nationwide assessments to guide strategic rollout.",
+              "Strategy Development (EU, 2015–2017): Contributed to technical studies and NRW strategy frameworks.",
+              "Enhancing Water Sustainability – The Hague, Netherlands (2023): Asset & leak management, energy optimization.",
+              "NRW Management & Leakage Control B – Nagoya, Japan (2017): Hydraulic analysis, leakage detection, tariff systems.",
+              "Standard O&M of Plants & Networks – Cairo (2018).",
+              "Safe Storing & Trading of Chlorine – Cairo (2018)."
+            ]
+          },
+          {
+            key: "damietta",
+            title: "O&M | NRW Engineer",
+            meta: "Damietta Water and Wastewater Company – Damietta",
+            summary: "Led leakage detection, pump installations, DMA optimization studies, and oversight of wastewater projects.",
+            bullets: [
+              "Participated in NRW/TSM workshops (HCWW Cairo, GIZ Alexandria, IWSP projects).",
+              "Led flow/pressure measurement projects and zoning with GIS support for DMA setup.",
+              "Supervised leak repairs and pump installations (GRANDFOS, electrical boards, valves).",
+              "Conducted technical evaluations and infrastructure inspections for wastewater stations."
+            ]
+          },
+          {
+            key: "cairo",
+            title: "O&M | NRW Engineer",
+            meta: "Greater Cairo Water Company – Cairo",
+            summary: "Specialized in flow/pressure calibration, SCADA integration, and active leakage control across plants and networks.",
+            bullets: [
+              "Executed flow/pressure measurements using Siemens FUP 1010, RADCOM, Fast Data Loggers.",
+              "Calibrated mechanical pumps and SCADA meters for accuracy and efficiency.",
+              "Prepared annual leakage control plans; deployed modern leakage detection instruments.",
+              "Served on Examination Committee for leakage detection devices; produced technical reports.",
+              "O&M of Electrical Distribution Boards (2012).",
+              "Extension & Maintenance of Electrical Cables (2013).",
+              "O&M of Electrical Transformers (2013).",
+              "O&M of Electrical Motors (2014).",
+              "Installation & Maintenance of METROTEC Water Meters (2012)."
+            ]
+          }
+        ],
+        certifications: { heading: "Certifications" },
+        certificationCards: [
+          {
+            title: "AI & Data Science",
+            items: [
+              { label: "Programming with Python", provider: "OpenEDG Python Institute", year: "2025" },
+              { label: "AI for Managers", provider: "Microsoft", year: "2025" },
+              { label: "Data Engineering Foundations Professional", provider: "Astronomer", year: "2025" },
+              { label: "Data Science Professional", provider: "KNIME", year: "2025" },
+              { label: "Microsoft Azure AI Essentials", provider: "Microsoft", year: "2025" },
+              { label: "Artificial Intelligence Career Essentials", provider: "ALX Africa", year: "2025" },
+              { label: "Artificial Intelligence Fundamentals", provider: "IBM", year: "2025" },
+              { label: "Artificial Intelligence Fundamentals with Capstone Project", provider: "IBM", year: "2025" },
+              { label: "Big Data Foundations – Level 1", provider: "IBM", year: "2025" },
+              { label: "Data Fundamentals", provider: "IBM", year: "2025" },
+              { label: "Data Visualization Using Python", provider: "IBM", year: "2025" },
+              { label: "Hadoop Foundations – Level 1", provider: "IBM", year: "2025" },
+              { label: "Modern AI", provider: "Cisco Networking Academy", year: "2025" },
+              { label: "Python for Data Science", provider: "IBM", year: "2025" },
+              { label: "Data Science", provider: "ALX Africa", year: "2024" },
+              { label: "Data Science & Analytics", provider: "HP LIFE", year: "2024" }
+            ]
+          },
+          {
+            title: "Water Sector & Utilities",
+            items: [
+              { label: "Enhancing Sustainable Water Utilities", provider: "Netherlands", year: "2023" },
+              { label: "NRW & Leakage Control (B)", provider: "Japan", year: "2017" },
+              { label: "Water Plant & Network Operation", provider: "Egypt", year: "2018" },
+              { label: "Chlorine Safety Training", provider: "Egypt", year: "2018" },
+              { label: "Electrical Systems (Boards, Cables, Transformers, Motors)", provider: "Egypt", year: "2012–2014" },
+              { label: "Water Meter Installation & Calibration (METROTEC)", provider: "Egypt", year: "2012" }
+            ]
+          },
+          {
+            title: "Project Management",
+            items: [
+              { label: "Project Management Fundamentals", provider: "IBM", year: "2025" },
+              { label: "PMP Exam Preparation", provider: "PM-Tricks (KSA)", year: "2024" },
+              { label: "Career Essentials in Project Management", provider: "Microsoft", year: "2025" }
+            ]
+          }
+        ],
+        education: { heading: "Education" },
+        educationCards: [
+          {
+            key: "emba",
+            title: "Executive MBA & Level 7 Diploma in Business Management",
+            meta: "Cardiff Institute, United Kingdom",
+            status: "In Progress",
+            bullets: [
+              "Strategic leadership, innovation, and organizational transformation.",
+              "Core modules: finance, global strategy, digital transformation, advanced business analytics.",
+              "Applied GenAI and data-driven methods for enterprise compliance and digital programs."
+            ],
+            tags: ["Finance & Strategy", "Digital Transformation", "Analytics & GenAI"]
+          },
+          {
+            key: "bsc",
+            title: "B.Sc. Electronics & Electrical Communications Engineering",
+            meta: "Faculty of Engineering, Cairo University",
+            bullets: [
+              "Graduation project: biomedical wireless sensor system for ECG monitoring of heart patients.",
+              "Strong foundation in signal processing, embedded systems, and communication protocols."
+            ],
+            tags: ["Embedded Systems", "Signal Processing", "Wireless IoT"]
+          }
+        ],
+        memberships: { heading: "Memberships" },
+        membershipsCards: [
+          { title: "ALX Africa", badge: "Fellowship Member", label: "Member since", year: "2023" },
+          { title: "Saudi Council of Engineers (SCE)", badge: "Professional Engineer", label: "Member since", year: "2024" },
+          { title: "Egyptian Engineers Syndicate (EES)", badge: "Registered Engineer", label: "Member since", year: "2011" }
+        ],
+        languages: { heading: "Languages" },
+        languageCards: [
+          { title: "Arabic", level: "Mother Tongue", desc: "Native fluency in writing, speaking, and comprehension." },
+          { title: "English", level: "Full Professional Proficiency", desc: "Experienced in technical writing, teaching, and professional communication." }
+        ],
+        case: {
+          heading: "Highlighted Projects",
+          cards: [
+            {
+              title: "O&M Contracts Bundling System",
+              meta: "NWC, Saudi Arabia (2024)",
+              lines: [
+                "<strong>Challenge:</strong> Fragmented O&M contracts and siloed reporting slowed decisions.",
+                "<strong>Solution:</strong> Applied XAI to unify contract analytics with executive dashboards.",
+                "<strong>Impact:</strong> Faster sourcing and oversight; measurable lift in O&M efficiency."
+              ]
+            },
+            {
+              title: "Road Safety Dashboard",
+              meta: "KAUST, Saudi Arabia (2024)",
+              lines: [
+                "<strong>Challenge:</strong> High incident rates and limited predictive visibility.",
+                "<strong>Solution:</strong> Built AI-enabled monitoring with leading indicators and alerts.",
+                "<strong>Impact:</strong> Reduced road incidents by <strong>15%</strong> in 6 months."
+              ]
+            },
+            {
+              title: "Online Ordering System",
+              meta: "Hull, UK (2024)",
+              lines: [
+                "<strong>Challenge:</strong> Long queues and manual order tracking.",
+                "<strong>Solution:</strong> Launched a scalable ordering & real-time status platform.",
+                "<strong>Impact:</strong> +<strong>30%</strong> throughput, −<strong>25%</strong> wait times."
+              ]
+            },
+            {
+              title: "NRW Reduction Phase",
+              meta: "VNG, Egypt (2023–2024)",
+              lines: [
+                "<strong>Challenge:</strong> Elevated real losses and reactive interventions.",
+                "<strong>Solution:</strong> AI-based monitoring, pressure management, and targeted repairs.",
+                "<strong>Impact:</strong> NRW reduced by <strong>25%</strong> in pilot zones."
+              ]
+            },
+            {
+              title: "National NRW Program",
+              meta: "USAID, Egypt (2019–2024)",
+              lines: [
+                "<strong>Challenge:</strong> Systemic losses and fragmented practices across utilities.",
+                "<strong>Solution:</strong> Smart metering, DMA rollout, and skills transfer at scale.",
+                "<strong>Impact:</strong> Sustained NRW reduction of up to <strong>30%</strong>."
+              ]
+            },
+            {
+              title: "DMA Establishment",
+              meta: "GIZ, Egypt (2018–2024)",
+              lines: [
+                "<strong>Challenge:</strong> Lack of granular control and leak localization.",
+                "<strong>Solution:</strong> Defined DMAs via GIS, hydraulic modeling, and field validation.",
+                "<strong>Impact:</strong> Water losses cut by ~<strong>15%</strong> in target areas."
+              ]
+            },
+            {
+              title: "Technical Support for NRW Reduction",
+              meta: "EU, Egypt (2019–2023)",
+              lines: [
+                "<strong>Challenge:</strong> Inconsistent O&M practices and KPI visibility.",
+                "<strong>Solution:</strong> Optimized O&M processes and deployed KPI dashboards.",
+                "<strong>Impact:</strong> Up to <strong>20%</strong> NRW reduction in supported utilities."
+              ]
+            },
+            {
+              title: "AI-Powered E-Commerce Platform",
+              meta: "Canada (2023)",
+              lines: [
+                "<strong>Challenge:</strong> Low conversion and limited personalization.",
+                "<strong>Solution:</strong> Predictive models for recommendations and churn risk.",
+                "<strong>Impact:</strong> Sales uplift of ~<strong>40%</strong>; higher repeat purchases."
+              ]
+            },
+            {
+              title: "YOLO Person Detection",
+              meta: "RMIT, Australia (2022)",
+              lines: [
+                "<strong>Challenge:</strong> Need for real-time, high-accuracy detection.",
+                "<strong>Solution:</strong> Optimized YOLO pipeline with edge-friendly inference.",
+                "<strong>Impact:</strong> Higher precision/recall and lower latency on live feeds."
+              ]
+            },
+            {
+              title: "National NRW Feasibility Study",
+              meta: "EU, Egypt (2019–2022)",
+              lines: [
+                "<strong>Challenge:</strong> Unclear ROI for nationwide NRW program.",
+                "<strong>Solution:</strong> Pre-feasibility with cost–benefit and rollout scenarios.",
+                "<strong>Impact:</strong> Informed national policy and funding decisions."
+              ]
+            },
+            {
+              title: "Smart DMA Monitoring",
+              meta: "KfW / Dorsch, Egypt (2019–2020)",
+              lines: [
+                "<strong>Challenge:</strong> Limited visibility into DMA performance.",
+                "<strong>Solution:</strong> Smart sensors, analytics, and alerting on KPIs.",
+                "<strong>Impact:</strong> NRW decreased by ~<strong>20%</strong> post-deployment."
+              ]
+            },
+            {
+              title: "Network Strategy Development",
+              meta: "EU, Egypt (2015–2017)",
+              lines: [
+                "<strong>Challenge:</strong> Aging infrastructure and rising losses.",
+                "<strong>Solution:</strong> Reform roadmap—pressure zones, asset planning, KPIs.",
+                "<strong>Impact:</strong> ~<strong>10%</strong> NRW reduction in early phases."
+              ]
+            }
+          ]
+        },
+        courses: {
+          heading: "Top Delivered Trainings",
+          cards: [
+            { title: "Digital Transformation", desc: "Implementing smart systems, ERP, SCADA, GIS & IoT for resilient infrastructure." },
+            { title: "Non-Revenue Water Management", desc: "Strategies, analytics & international best practices to reduce water loss." },
+            { title: "Data Analysis & AI", desc: "Turning raw data into actionable insights with ML, predictive analytics, and Generative AI." },
+            { title: "Explainable AI & Ethics", desc: "Building transparent AI systems that drive trust, accountability & regulatory compliance." },
+            { title: "Performance Optimization", desc: "KPI frameworks, centralized O&M, and benchmarking for efficiency." },
+            { title: "Sustainability & Net-Zero Transition", desc: "Policies, technologies, and strategies for resource-efficient utilities." }
+          ]
+        },
+        gallery: { heading: "Gallery of Moments" },
+        contact: { heading: "Let’s Connect", subhead: "Connect with me directly on your preferred platform." },
+        footer: { copy: "© 2025 Mohamed El-Mansy. All rights reserved." }
+      },
+      ar: {
+        nav: ["الرئيسية", "نبذة", "الخدمات", "أعمالي", "المشروعات", "المعرض", "وظّفني"],
+        languageLabel: "اللغة",
+        hero: {
+          title: 'تمكين التميز القائم على البيانات<br/><span class="text-blue-600 dark:text-blue-400">في الشرق الأوسط وشمال أفريقيا وخارجها</span>',
+          lines: [
+            "استشاري ومدرب | قيادة مكاتب المشاريع والحوكمة المؤسسية",
+            "إدارة المشاريع والامتثال | السياسات والإجراءات التشغيلية والمعايير والصلاحيات",
+            "كبير علماء البيانات | إستراتيجيات قائمة على البيانات | الذكاء التوليدي · تشغيل النماذج · ذكاء الأعمال · بايثون",
+            "التحول الرقمي · التشغيل والصيانة · خبير المياه غير المحققة للإيراد | أتمتة التعلم الآلي",
+            "بناء أطر الحوكمة | تمكين التميز القائم على البيانات"
+          ],
+          badges: [
+            "15+ عام خبرة",
+            "1700+ ساعة تدريبية",
+            "الذكاء الاصطناعي وعلوم البيانات",
+            "التحول الرقمي",
+            "مرافق المياه",
+            "17.3 ألف متابع على لينكدإن"
+          ],
+          ctas: {
+            hire: "وظّفني",
+            services: "استكشاف الخدمات",
+            cv: "عرض السيرة الذاتية"
+          }
+        },
+        about: {
+          heading: "تعرف على خبرتي",
+          stats: ["مشاريع مكتملة", "محترفون تم تدريبهم", "دول تم الوصول إليها", "نسبة الرضا"],
+          paragraphs: [
+            "أنا <strong>محمد المنسي</strong>، <strong>استشاري مشاريع وقائد للتحول الرقمي</strong> بخبرة تتجاوز <strong>14 عاماً</strong> في تنفيذ <strong>برامج تنموية ممولة</strong> وحلول <strong>ذكاء اصطناعي</strong> متقدمة في مصر والسعودية والإمارات وسلطنة عُمان.",
+            "تتوزع خبرتي عبر <strong>تنمية القطاع الخاص وتعزيز تنافسية المشروعات الصغيرة والمتوسطة وتسهيل الاستثمار</strong> مع سجل ناجح في <strong>مشروعات المانحين</strong> الخاصة بالمياه غير المحققة للإيراد والنمو الاقتصادي والبنية التحتية والاستدامة. أجيد <strong>الحوار السياساتي</strong> مع الحكومات والمؤسسات المالية والقطاع الخاص لمواءمة الأولويات التنموية مع خطط تنفيذية قابلة للقياس.",
+            "بصفتي <strong>كبير علماء بيانات واستشاري</strong> أمتلك خبرة في <strong>بايثون</strong>، <strong>تحليلات السحابة</strong>، <strong>الذكاء الاصطناعي التوليدي</strong> و<strong>الذكاء الاصطناعي القابل للتفسير</strong>. أصمم وأشغل <strong>أدوات مدعومة بالنماذج اللغوية</strong> ومنتجات ذكاء اصطناعي قابلة للتوسع ولوحات قيادة ذكية و<strong>منصات ذكاء أعمال ذاتية الخدمة</strong> باستخدام Python وSQL وPower BI وNLP لتمكين المؤسسات من تبسيط مؤشرات الأداء وأتمتة الامتثال وتقليل الهدر.",
+            "تشمل أعمالي قيادة <strong>MLOps وحوكمة النماذج والذكاء الاصطناعي الأخلاقي</strong>، وتقديم أكثر من <strong>1700 ساعة تدريب فني</strong>، وتيسير مشاركة أصحاب المصلحة في <strong>مشروعات التحول الرقمي القانونية والضريبية والامتثال</strong> القائمة على البيانات.",
+            "أتابع حالياً <strong>ماجستير إدارة أعمال تنفيذي (معهد كارديف، المملكة المتحدة)</strong> لدمج <strong>السياسات والتمويل والتقنية</strong> في شراكات بين القطاعين العام والخاص ودفع النمو المستدام المبني على الابتكار ضمن <strong>إطار البوابة العالمية للاتحاد الأوروبي</strong>."
+          ]
+        },
+        services: {
+          heading: "خدمات احترافية",
+          subhead: "تسليم متكامل من الإستراتيجية إلى التنفيذ مصمم لأثر قابل للقياس وموثوقية على مستوى المؤسسات.",
+          values: [
+            "إستراتيجية → تنفيذ → تبنٍ",
+            "الامتثال والحوكمة منذ التصميم",
+            "موثوقية بمستوى المؤسسات"
+          ],
+          cards: [
+            {
+              title: "إدارة المشاريع",
+              desc: "قيادة البرامج الاستراتيجية المدعومة بالذكاء الاصطناعي من الاستكشاف حتى الإطلاق مع مواءمة أولويات الإدارة والمخاطر والتسليم.",
+              bullets: [
+                "خرائط طريق، مؤشرات OKR، الميزانيات وإدارة الموردين",
+                "مكتب مشاريع رشيق، سجلات RAID، حوكمة أصحاب المصلحة",
+                "إدارة التغيير وأدلة التبني"
+              ]
+            },
+            {
+              title: "التخطيط الاستراتيجي",
+              desc: "تصميم استراتيجيات المرافق والتحليلات والتحول الرقمي التي تربط السياسات والتمويل والتقنية بنتائج الأعمال.",
+              bullets: [
+                "نماذج التشغيل، أطر مؤشرات الأداء، إستراتيجية البيانات",
+                "برامج المانحين/الاتحاد الأوروبي، تصميم الشراكات بين القطاعين العام والخاص، توافق البوابة العالمية",
+                "المخاطر والامتثال والحوكمة بالافتراض"
+              ]
+            },
+            {
+              title: "التدريب المهني",
+              desc: "أكثر من 1700 ساعة تدريب مخصصة في الذكاء الاصطناعي وذكاء الأعمال وبايثون وعرض البيانات ومهارات البيانات التنفيذية.",
+              bullets: [
+                "مختبرات عملية ومشاريع تخرج",
+                "تقديم حضوري وعن بُعد عبر الشرق الأوسط وأوروبا",
+                "أدلة تشغيلية وقوالب ودعم لاحق"
+              ]
+            },
+            {
+              title: "لوحات ذكاء الأعمال",
+              desc: "تحليلات تنفيذية في Power BI وTableau وبايثون تحول البيانات الخام إلى قرارات.",
+              bullets: [
+                "DAX/Dataflows، الحوكمة والتحكم في الصلاحيات",
+                "أتمتة مؤشرات الأداء والتقارير التشغيلية",
+                "تحليلات قانونية/امتثال عند الحاجة"
+              ]
+            },
+            {
+              title: "تحليل البيانات",
+              desc: "بناء نماذج تنبؤية ونماذج جدوى وحزم مؤشرات توجّه القرارات التكتيكية والاستراتيجية.",
+              bullets: [
+                "اختبارات الفرضيات، التقسيم، السلاسل الزمنية",
+                "تقييم جودة البيانات وترشيد مؤشرات الأداء",
+                "سرد البيانات التنفيذي والحكايات التحليلية"
+              ]
+            },
+            {
+              title: "الأتمتة",
+              desc: "بوابات وسير عمل مدعومة بالذكاء الاصطناعي لجمع البيانات والتقارير والامتثال بمقياس المؤسسة.",
+              bullets: [
+                "تنسيق RPA وواجهات API والمهام الحدثية",
+                "مسارات النماذج، التحقق، وسجلات التدقيق",
+                "أدوات ذاتية الخدمة للمستخدمين غير التقنيين"
+              ]
+            }
+          ],
+          ctas: { proposal: "اطلب عرضاً", projects: "استعرض المشاريع" }
+        },
+        portfolio: { heading: "معرض الأعمال" },
+        skills: {
+          heading: "مجالات المهارة",
+          cards: [
+            { title: "هندسة البيانات والبيانات الضخمة", bullets: ["Cloudera CDP (HDFS، Hive، Impala، Oozie)", "Apache Spark, PySpark", "Informatica DEI/EDC", "Airflow، Kafka", "مسارات ETL ونمذجة البيانات"] },
+            { title: "البرمجة والأتمتة", bullets: ["Python (Pandas, NumPy, Scikit-learn)", "SQL، PySpark", "واجهات REST وأتمتة سير العمل", "Git وتكامل API", "برامج فحص جودة البيانات"] },
+            { title: "السحابة والبنية التحتية", bullets: ["AWS، Azure، GCP", "النشر داخل مقرات العملاء", "DataOps وCI/CD", "تكامل السحابة مع داخل الشركة", "التقاط تغيرات البيانات (CDC)"] },
+            { title: "التعلم الآلي والتحليلات", bullets: ["انحدار، تصنيف، وعنقدة", "التنبؤ ونشر النماذج", "تشغيل النماذج (MLOps) والتفسير XAI", "تصميم مخزن الخصائص", "مراقبة النماذج وتحسين المطالبات"] },
+            { title: "ذكاء الأعمال ولوحات المعلومات", bullets: ["Power BI (DAX، Dataflows)", "Tableau وترشيد اللوحات", "أتمتة مؤشرات الأداء", "تحليلات تشغيلية وقانونية"] },
+            { title: "الحوكمة والأخلاقيات", bullets: ["الذكاء الاصطناعي المسؤول وعقود البيانات", "خصوصية البيانات والامتثال", "سلاسل الكتل للتمويل", "حوكمة البيانات الوصفية", "مسارات جاهزة للتدقيق"] },
+            { title: "الخبرة القطاعية", bullets: ["SCADA، GIS", "Primavera P6، MS Project", "تحليلات بنية المرافق", "NRW والتحكم في مناطق العزل", "تقييم العقود"] },
+            { title: "القيادة والتسليم", bullets: ["الإرشاد التقني وإشراك أصحاب المصلحة", "الموارد البشرية المدعومة بالذكاء الاصطناعي وChatGPT للأعمال", "إدارة الابتكار", "التسليم الرشيق وإستراتيجيات التشغيل والصيانة", "1700+ ساعة تدريب فني"] }
+          ]
+        },
+        experience: { heading: "الخبرة المهنية" },
+        experienceCards: [
+          {
+            key: "freelance",
+            title: "العمل الحر",
+            meta: "عملاء عالميون · عن بُعد وميداني (مصر، السعودية، الإمارات، عُمان، المملكة المتحدة، كندا)",
+            summary: "استشاري مستقل يقدّم حلولاً عالية الأثر في التحليلات والبرمجيات والتدريب من الاكتشاف حتى التبني.",
+            statsLabels: ["السنوات", "المناطق", "أنماط التعاقد", "التمكين"],
+            statsValues: ["2010–الآن", "الشرق الأوسط وشمال أفريقيا · أوروبا · أمريكا الشمالية", "مشروعات · عقود مستمرة · ورش عمل", "5000+ متدرب"],
+            categories: [
+              {
+                title: "استشاري بيانات وعالم بيانات / محلل ومدرب",
+                meta: "2020–الآن · مؤشرات الأداء · تعلم آلي/معالجة لغة · لوحات قياس · تمكين الفرق",
+                summary: "تصميم برامج تحليلات قابلة للقياس، نشر نماذج منتجة، وتمكين لوحات قرارات؛ مع تطوير قدرات داخلية بالتدريب الموجّه.",
+                contributions: [
+                  "بناء أطر مؤشرات الأداء مع القيادات وربط خارطة تحليلات بالأرباح والكفاءة والاحتفاظ.",
+                  "تشييد خطوط بيانات → سمات → نماذج (تنبؤ، تصنيف، عنقدة؛ ومعالجة لغة/تعلم عميق عند الحاجة) مع CI/CD ورصد.",
+                  "تسليم لوحات تفاعلية (Power BI، Tableau، Dash) للقيادة والتشغيل لتمكين التحليلات الذاتية.",
+                  "وضع معايير لجودة البيانات والتوثيق وإعادة الإنتاج وأتمتة المسارات ببايثون/SQL.",
+                  "تدريب وإرشاد أكثر من 500 محترف في بايثون والإحصاء والتعلم الآلي التطبيقي مع أدلة عملية."
+                ],
+                highlights: [
+                  "مرفق خليجي: كشف شذوذ وتنبؤات دعمت الصيانة وتخطيط الأحمال.",
+                  "تجارة إلكترونية بالمملكة المتحدة: تجزئة ونماذج ميل لتعزيز الاستهداف وتوزيع القنوات.",
+                  "شركة في عُمان: تنبؤات مبيعات سحابية حسّنت المخزون وتخطيط القوى العاملة."
+                ],
+                badges: ["Python", "SQL", "scikit-learn", "Power BI · Tableau · Dash", "AWS/GCP"]
+              },
+              {
+                title: "تقنية المعلومات والهندسة البرمجية",
+                meta: "2010–الآن · تطوير متكامل · واجهات API · قواعد بيانات · DevOps",
+                summary: "تسليم منصات وواجهات برمجة آمنة وقابلة للتوسع، تحسين قواعد البيانات، دمج ميزات ذكاء اصطناعي عملية، وتشغيل أنظمة إنتاج موثوقة.",
+                contributions: [
+                  "تطوير وصيانة منصات ويب متكاملة (Django، PHP، JavaScript، SQL) بضبط أمان وأداء قوي.",
+                  "تصميم واجهات REST بعقود واضحة وإصدارات، ما يسهل التكامل مع تطبيقات العملاء والشركاء.",
+                  "تحسين قواعد البيانات (تصميم مخطط، فهارس، ضبط الاستعلامات) لرفع السرعة والقابلية للتوسع في بيئات متعددة المستأجرين.",
+                  "دمج ميزات ذكاء اصطناعي تطبيقية (تعرف على الصور، تحليلات سلوك العملاء) لتحسين تجربة المستخدم وزيادة التفاعل.",
+                  "إدارة عمليات تقنية المعلومات: نشر الخوادم، مسارات CI/CD، الرصد، والاستجابة للحوادث لعملاء متنوعين."
+                ],
+                highlights: [
+                  "عميل كندي: منصة SaaS متعددة المستأجرين بموثوقية عالية ومصادقة ومدفوعات آمنة.",
+                  "شركة في الإمارات: لوحة تحليلات لحظية لسلوك العملاء تعزز الحملات الموجهة.",
+                  "السعودية: بوابة تعليم إلكتروني قابلة للتوسع السحابي تدعم استخداماً عالياً متزامناً."
+                ],
+                badges: ["Django", "PHP", "JavaScript", "MySQL · PostgreSQL", "Docker · Git · CI/CD", "APM · Observability"]
+              }
+            ]
+          },
+          {
+            key: "nwc",
+            title: "استشاري هندسي",
+            meta: "الشركة الوطنية للمياه (NWC)، المقر الرئيسي، الرياض، السعودية",
+            bullets: [
+              "إدارة الجوانب المالية لعقود التشغيل والصيانة على مستوى المملكة مع ضمان الالتزام بمستويات الخدمة والمقارنات المرجعية والشفافية في التقارير المالية.",
+              "تصميم وتنفيذ أنظمة تقييم العقود ونماذج التسجيل لدعم المشتريات وترشيد التكاليف وتقليل المخاطر.",
+              "إرساء أطر الامتثال للتقارير المالية والالتزامات الضريبية والاستعداد للتدقيق بما يتماشى مع المتطلبات التنظيمية.",
+              "تطوير لوحات قياس وتحليلات مؤتمتة لأداء العقود ومدفوعات الموردين ومؤشرات الأداء المالية، ما سرّع التقارير بنسبة 40%.",
+              "بناء مسارات ذكاء اصطناعي للكشف عن انحرافات التكاليف ونمذجة المخاطر المالية لتعزيز الحوكمة والمساءلة.",
+              "قيادة إدارة العقود وأطر التقييم عبر برامج التشغيل والصيانة الوطنية، وتطوير نماذج تسجيل ولوحات مؤشرات وسجلات التزام بمستويات الخدمة للمقارنات المرجعية.",
+              "التفاوض مع المقاولين وأصحاب المصلحة الداخليين لضمان الالتزام التعاقدي وتسريع الموافقات بنسبة 25%.",
+              "نشر حلول ذكاء اصطناعي للصيانة التنبؤية مما رفع جاهزية الأصول بنسبة 22%.",
+              "بناء منصات بيانات مركزية ولوحات مؤشرات مؤتمتة لمؤشرات الأداء وأدوات مقارنة مستويات الخدمة وتحليلات تشغيلية وقانونية حسّنت سرعة التقارير بنسبة 40%.",
+              "إرساء عمليات مكتب إدارة المشاريع للحوكمة والتقارير التنظيمية واللوحات التنفيذية لضمان الشفافية والتوافق مع الأهداف الاستراتيجية.",
+              "تصميم أدوات تقييم العقود (مخططات العنكبوت ونماذج التسجيل) تُستخدم على مستوى المملكة.",
+              "تطوير واجهات REST آمنة لتبادل البيانات وأتمتة سير العمل.",
+              "ضمان تسليم التحليلات وفق لوائح خصوصية البيانات ومعايير السرية في البيئات المنظمة.",
+              "تطوير مسارات ETL باستخدام Informatica DEI/EDC لإدارة البيانات التعريفية وتتبّع النسب في بيئات الامتثال.",
+              "بناء ونشر وكلاء مدعومين بالنماذج اللغوية باستخدام Langchain لأتمتة إنشاء مؤشرات الأداء.",
+              "تدريب أكثر من 100 موظف على مسارات التشغيل والصيانة وتقييم العقود المعتمد على المؤشرات والتقارير الضريبية وحوكمة البيانات.",
+              "تمكين مسارات ذكاء اصطناعي لنمذجة مخاطر الأصول التنبؤية وكشف انحرافات التكاليف.",
+              "إطلاق نظام ويب موجه لأصحاب المصلحة لمشاركة بيانات التشغيل والصيانة وتتبعها."
+            ]
+          },
+          {
+            key: "hcww",
+            title: "مهندس تشغيل وصيانة | NRW",
+            meta: "الشركة القابضة لمياه الشرب والصرف الصحي – القاهرة",
+            summary: "أشرف على خطط التشغيل والصيانة وخفض الفاقد، استراتيجية مناطق العزل DMA، تكامل SCADA/GIS، ومبادرات المانحين.",
+            bullets: [
+              "تصميم وتنفيذ خطط التشغيل والصيانة والإشراف على المشاريع التمكينية للفرق الداخلية والمقاولين.",
+              "إدارة التفتيش واعتماد محطات المعالجة للحصول على شهادة TSM.",
+              "تنفيذ مشروعات خفض الفاقد (مناطق DMAs/DMZ، كشف التسرب، إدارة الضغط) وقيادة خطط الطوارئ.",
+              "إصدار تقارير الأداء الشهرية/السنوية مقابل مؤشرات الأداء ودمج نتائج التفتيش الميداني.",
+              "إدارة الميزانيات التشغيلية واستمرارية التوزيع المائي وتخطيط المقاولين.",
+              "تعزيز التعاون مع كيانات الشركة الوطنية للمياه والسلطات المحلية والمانحين الدوليين.",
+              "إدخال أساليب مبتكرة للتفتيش وكشف التسرب وفق أفضل الممارسات العالمية.",
+              "مرحلة خفض الفاقد (VNG، 2023–2024): تعزيز التشغيل والصيانة لتقليل الفاقد بتقنيات متقدمة.",
+              "قسم خفض الفاقد (USAID، 2019–2024): تطبيق مكافحة التسرب على مستوى النظام ورفع كفاءة التشغيل والصيانة.",
+              "تأسيس مناطق DMAs (GIZ، 2018–2024): تحديد مناطق العزل بالتحقيقات الميدانية والبيانات التخطيطية للتسرب.",
+              "دعم فني بالإسكندرية (الاتحاد الأوروبي، 2019–2023): تقديم دعم خفض الفاقد وتحسين ممارسات التشغيل والصيانة.",
+              "دراسة جدوى البرنامج القومي للفاقد (الاتحاد الأوروبي، 2019–2022): تقييمات وطنية لتوجيه التنفيذ.",
+              "تطوير الاستراتيجية (الاتحاد الأوروبي، 2015–2017): المشاركة في الدراسات الفنية وأطر استراتيجية الفاقد.",
+              "تعزيز استدامة المرافق المائية – لاهاي، هولندا (2023): إدارة الأصول والتسرب وكفاءة الطاقة.",
+              "إدارة الفاقد وكشف التسرب B – ناغويا، اليابان (2017): التحليل الهيدروليكي وكشف التسرب وأنظمة التعرفة.",
+              "تشغيل وصيانة المحطات والشبكات – القاهرة (2018).",
+              "التخزين الآمن والتعامل مع الكلور – القاهرة (2018)."
+            ]
+          },
+          {
+            key: "damietta",
+            title: "مهندس تشغيل وصيانة | NRW",
+            meta: "شركة مياه الشرب والصرف الصحي بدمياط – دمياط",
+            summary: "قاد كشف التسربات وتركيب المضخات ودراسات تحسين مناطق العزل وإدارة مشاريع الصرف.",
+            bullets: [
+              "المشاركة في ورش خفض الفاقد/TSM (القابضة بالقاهرة، GIZ الإسكندرية، مشروعات IWSP).",
+              "قيادة مشروعات قياس التدفق/الضغط والتقسيم بدعم GIS لتأسيس مناطق العزل.",
+              "الإشراف على إصلاح التسربات وتركيب المضخات (GRANDFOS، اللوحات الكهربائية، الصمامات).",
+              "إجراء تقييمات فنية وتفتيش البنية التحتية لمحطات الصرف."
+            ]
+          },
+          {
+            key: "cairo",
+            title: "مهندس تشغيل وصيانة | NRW",
+            meta: "شركة مياه القاهرة الكبرى – القاهرة",
+            summary: "متخصص في معايرة التدفق/الضغط، تكامل SCADA، والمكافحة النشطة للتسربات عبر المحطات والشبكات.",
+            bullets: [
+              "تنفيذ قياسات التدفق/الضغط باستخدام Siemens FUP 1010 وRADCOM ومسجلات البيانات السريعة.",
+              "معايرة المضخات الميكانيكية وعدادات SCADA للدقة والكفاءة.",
+              "إعداد خطط مكافحة التسرب السنوية ونشر أجهزة كشف تسرب حديثة.",
+              "العمل في لجنة فحص أجهزة كشف التسرب وإصدار التقارير الفنية.",
+              "تشغيل وصيانة لوحات التوزيع الكهربائية (2012).",
+              "تمديد وصيانة الكابلات الكهربائية (2013).",
+              "تشغيل وصيانة المحولات الكهربائية (2013).",
+              "تشغيل وصيانة المحركات الكهربائية (2014).",
+              "تركيب وصيانة عدادات METROTEC للمياه (2012)."
+            ]
+          }
+        ],
+        certifications: { heading: "الشهادات" },
+        certificationCards: [
+          {
+            title: "الذكاء الاصطناعي وعلوم البيانات",
+            items: [
+              { label: "البرمجة بلغة بايثون", provider: "معهد OpenEDG", year: "2025" },
+              { label: "الذكاء الاصطناعي للمديرين", provider: "مايكروسوفت", year: "2025" },
+              { label: "الأساسيات الاحترافية لهندسة البيانات", provider: "Astronomer", year: "2025" },
+              { label: "أخصائي علوم البيانات", provider: "KNIME", year: "2025" },
+              { label: "أساسيات الذكاء الاصطناعي في Azure", provider: "مايكروسوفت", year: "2025" },
+              { label: "أساسيات المسار المهني للذكاء الاصطناعي", provider: "ALX Africa", year: "2025" },
+              { label: "أساسيات الذكاء الاصطناعي", provider: "IBM", year: "2025" },
+              { label: "أساسيات الذكاء الاصطناعي مع مشروع نهائي", provider: "IBM", year: "2025" },
+              { label: "أساسيات البيانات الضخمة – المستوى 1", provider: "IBM", year: "2025" },
+              { label: "أساسيات البيانات", provider: "IBM", year: "2025" },
+              { label: "تصوير البيانات باستخدام بايثون", provider: "IBM", year: "2025" },
+              { label: "أساسيات Hadoop – المستوى 1", provider: "IBM", year: "2025" },
+              { label: "الذكاء الاصطناعي الحديث", provider: "أكاديمية سيسكو للشبكات", year: "2025" },
+              { label: "بايثون لعلوم البيانات", provider: "IBM", year: "2025" },
+              { label: "علوم البيانات", provider: "ALX Africa", year: "2024" },
+              { label: "علوم وتحليلات البيانات", provider: "HP LIFE", year: "2024" }
+            ]
+          },
+          {
+            title: "قطاع المياه والمرافق",
+            items: [
+              { label: "تعزيز استدامة مرافق المياه", provider: "هولندا", year: "2023" },
+              { label: "الحد من الفاقد وكشف التسرب (B)", provider: "اليابان", year: "2017" },
+              { label: "تشغيل محطات وشبكات المياه", provider: "مصر", year: "2018" },
+              { label: "السلامة في تداول الكلور", provider: "مصر", year: "2018" },
+              { label: "الأنظمة الكهربائية (لوحات، كابلات، محولات، محركات)", provider: "مصر", year: "2012–2014" },
+              { label: "تركيب ومعايرة عدادات المياه METROTEC", provider: "مصر", year: "2012" }
+            ]
+          },
+          {
+            title: "إدارة المشاريع",
+            items: [
+              { label: "أساسيات إدارة المشاريع", provider: "IBM", year: "2025" },
+              { label: "التحضير لاختبار PMP", provider: "PM-Tricks (السعودية)", year: "2024" },
+              { label: "أساسيات المسار المهني في إدارة المشاريع", provider: "مايكروسوفت", year: "2025" }
+            ]
+          }
+        ],
+        education: { heading: "التعليم" },
+        educationCards: [
+          {
+            key: "emba",
+            title: "ماجستير إدارة الأعمال التنفيذي ودبلوم المستوى 7 في إدارة الأعمال",
+            meta: "معهد كارديف، المملكة المتحدة",
+            status: "جاري",
+            bullets: [
+              "القيادة الاستراتيجية والابتكار والتحول المؤسسي.",
+              "وحدات أساسية: التمويل، الاستراتيجية العالمية، التحول الرقمي، تحليلات الأعمال المتقدمة.",
+              "تطبيق الذكاء الاصطناعي التوليدي والأساليب المعتمدة على البيانات لامتثال الشركات وبرامج التحول الرقمي."
+            ],
+            tags: ["التمويل والاستراتيجية", "التحول الرقمي", "التحليلات والذكاء التوليدي"]
+          },
+          {
+            key: "bsc",
+            title: "بكالوريوس هندسة الإلكترونيات والاتصالات",
+            meta: "كلية الهندسة، جامعة القاهرة",
+            bullets: [
+              "مشروع التخرج: نظام استشعار لاسلكي طبي لمراقبة ECG لمرضى القلب.",
+              "أساس قوي في معالجة الإشارة والأنظمة المدمجة وبروتوكولات الاتصالات."
+            ],
+            tags: ["الأنظمة المدمجة", "معالجة الإشارة", "إنترنت الأشياء اللاسلكي"]
+          }
+        ],
+        memberships: { heading: "العضويات" },
+        membershipsCards: [
+          { title: "منصة ALX إفريقيا", badge: "عضو في برنامج الزمالة", label: "عضو منذ", year: "2023" },
+          { title: "الهيئة السعودية للمهندسين", badge: "مهندس محترف", label: "عضو منذ", year: "2024" },
+          { title: "نقابة المهندسين المصرية", badge: "مهندس مسجل", label: "عضو منذ", year: "2011" }
+        ],
+        languages: { heading: "اللغات" },
+        languageCards: [
+          { title: "العربية", level: "اللغة الأم", desc: "طلاقة كاملة في الكتابة والتحدث والاستماع." },
+          { title: "الإنجليزية", level: "إجادة مهنية كاملة", desc: "خبرة في الكتابة التقنية والتدريب والتواصل المهني." }
+        ],
+        case: {
+          heading: "مشروعات مميزة",
+          cards: [
+            {
+              title: "منظومة دمج عقود التشغيل والصيانة",
+              meta: "الشركة الوطنية للمياه، السعودية (2024)",
+              lines: [
+                "<strong>التحدي:</strong> عقود تشغيل وصيانة مجزأة وتقارير متباينة تبطئ القرار.",
+                "<strong>الحل:</strong> توحيد تحليلات العقود بلوحات تنفيذية مدعومة بالتفسير.",
+                "<strong>الأثر:</strong> تسريع التعاقد والرقابة وتحسين كفاءة التشغيل والصيانة."
+              ]
+            },
+            {
+              title: "لوحة سلامة الطرق",
+              meta: "كاوست، السعودية (2024)",
+              lines: [
+                "<strong>التحدي:</strong> ارتفاع الحوادث وضعف الرؤية التنبؤية.",
+                "<strong>الحل:</strong> مراقبة مدعومة بالذكاء الاصطناعي بمؤشرات إنذار مبكر وتنبيهات.",
+                "<strong>الأثر:</strong> خفض الحوادث بنسبة <strong>15%</strong> خلال 6 أشهر."
+              ]
+            },
+            {
+              title: "منصة الطلبات الإلكترونية",
+              meta: "هُل، المملكة المتحدة (2024)",
+              lines: [
+                "<strong>التحدي:</strong> طوابير طويلة وتتبع يدوي للطلبات.",
+                "<strong>الحل:</strong> إطلاق منصة طلبات قابلة للتوسع مع تتبع لحظي للحالة.",
+                "<strong>الأثر:</strong> زيادة السعة بـ<strong>30%</strong> وتقليل وقت الانتظار بـ<strong>25%</strong>."
+              ]
+            },
+            {
+              title: "مرحلة خفض المياه غير المحققة للإيراد",
+              meta: "VNG، مصر (2023–2024)",
+              lines: [
+                "<strong>التحدي:</strong> فاقد مرتفع وتدخلات تفاعلية.",
+                "<strong>الحل:</strong> مراقبة بالذكاء الاصطناعي، إدارة ضغط، وإصلاحات موجهة.",
+                "<strong>الأثر:</strong> خفض الفاقد بنسبة <strong>25%</strong> في المناطق التجريبية."
+              ]
+            },
+            {
+              title: "البرنامج القومي للمياه غير المحققة للإيراد",
+              meta: "USAID، مصر (2019–2024)",
+              lines: [
+                "<strong>التحدي:</strong> فاقد منهجي وممارسات مجزأة عبر الشركات.",
+                "<strong>الحل:</strong> عدادات ذكية، نشر مناطق DMAs، ونقل معرفة على نطاق واسع.",
+                "<strong>الأثر:</strong> خفض مستدام للفاقد يصل إلى <strong>30%</strong>."
+              ]
+            },
+            {
+              title: "تأسيس مناطق DMAs",
+              meta: "GIZ، مصر (2018–2024)",
+              lines: [
+                "<strong>التحدي:</strong> غياب التحكم الدقيق وتحديد مواقع التسرب.",
+                "<strong>الحل:</strong> تحديد مناطق DMAs عبر GIS والنمذجة الهيدروليكية والتحقق الميداني.",
+                "<strong>الأثر:</strong> تقليل الفاقد بنحو <strong>15%</strong> في المناطق المستهدفة."
+              ]
+            },
+            {
+              title: "دعم فني لخفض المياه غير المحققة للإيراد",
+              meta: "الاتحاد الأوروبي، مصر (2019–2023)",
+              lines: [
+                "<strong>التحدي:</strong> ممارسات تشغيل وصيانة غير متسقة وضعف رؤية مؤشرات الأداء.",
+                "<strong>الحل:</strong> تحسين عمليات التشغيل والصيانة ونشر لوحات متابعة المؤشرات.",
+                "<strong>الأثر:</strong> خفض الفاقد حتى <strong>20%</strong> في الشركات المدعومة."
+              ]
+            },
+            {
+              title: "منصة تجارة إلكترونية مدعومة بالذكاء الاصطناعي",
+              meta: "كندا (2023)",
+              lines: [
+                "<strong>التحدي:</strong> انخفاض التحويل وقلة التخصيص.",
+                "<strong>الحل:</strong> نماذج تنبؤية للتوصيات ومخاطر التسرب.",
+                "<strong>الأثر:</strong> زيادة المبيعات بنحو <strong>40%</strong> وارتفاع معدل الشراء المتكرر."
+              ]
+            },
+            {
+              title: "كشف الأشخاص باستخدام YOLO",
+              meta: "جامعة RMIT، أستراليا (2022)",
+              lines: [
+                "<strong>التحدي:</strong> الحاجة لاكتشاف فوري عالي الدقة.",
+                "<strong>الحل:</strong> تحسين خط YOLO بقدرات استدلال ملائمة للأجهزة الطرفية.",
+                "<strong>الأثر:</strong> دقة واسترجاع أعلى مع زمن استجابة أقل على البث المباشر."
+              ]
+            },
+            {
+              title: "دراسة جدوى وطنية للمياه غير المحققة للإيراد",
+              meta: "الاتحاد الأوروبي، مصر (2019–2022)",
+              lines: [
+                "<strong>التحدي:</strong> عائد غير واضح لبرنامج وطني شامل.",
+                "<strong>الحل:</strong> دراسة مبدئية بتكاليف وفوائد وسيناريوهات تنفيذ.",
+                "<strong>الأثر:</strong> دعم السياسات الوطنية وقرارات التمويل."
+              ]
+            },
+            {
+              title: "مراقبة مناطق DMAs الذكية",
+              meta: "KfW / Dorsch، مصر (2019–2020)",
+              lines: [
+                "<strong>التحدي:</strong> رؤية محدودة لأداء مناطق DMAs.",
+                "<strong>الحل:</strong> حساسات ذكية وتحليلات وتنبيهات على مؤشرات الأداء.",
+                "<strong>الأثر:</strong> خفض الفاقد بنحو <strong>20%</strong> بعد التنفيذ."
+              ]
+            },
+            {
+              title: "تطوير إستراتيجية الشبكات",
+              meta: "الاتحاد الأوروبي، مصر (2015–2017)",
+              lines: [
+                "<strong>التحدي:</strong> بنية تحتية قديمة وخسائر متزايدة.",
+                "<strong>الحل:</strong> خارطة طريق للإصلاح تشمل مناطق الضغط، تخطيط الأصول، ومؤشرات الأداء.",
+                "<strong>الأثر:</strong> خفض الفاقد بنحو <strong>10%</strong> في المراحل الأولى."
+              ]
+            }
+          ]
+        },
+        courses: {
+          heading: "أبرز الدورات المقدمة",
+          cards: [
+            { title: "التحول الرقمي", desc: "تطبيق الأنظمة الذكية وERP وSCADA وGIS وإنترنت الأشياء لبنية تحتية مرنة." },
+            { title: "إدارة المياه غير المحققة للإيراد", desc: "استراتيجيات وتحليلات وأفضل الممارسات الدولية لخفض الفاقد." },
+            { title: "تحليل البيانات والذكاء الاصطناعي", desc: "تحويل البيانات الخام إلى قرارات باستخدام التعلم الآلي والتحليلات التنبؤية والذكاء التوليدي." },
+            { title: "الذكاء الاصطناعي القابل للتفسير والأخلاقيات", desc: "بناء أنظمة شفافة تعزز الثقة والمساءلة والامتثال التنظيمي." },
+            { title: "تحسين الأداء", desc: "أطر مؤشرات الأداء، التشغيل والصيانة المركزي، والمقارنات المرجعية لتحقيق الكفاءة." },
+            { title: "الاستدامة والتحول نحو الحياد الكربوني", desc: "سياسات وتقنيات واستراتيجيات لإدارة الموارد بكفاءة في المرافق." }
+          ]
+        },
+        gallery: { heading: "معرض اللحظات" },
+        contact: { heading: "دعونا نتواصل", subhead: "تواصل معي مباشرة عبر المنصة التي تفضلها." },
+        footer: { copy: "© 2025 محمد المنسي. جميع الحقوق محفوظة." }
+      }
+    };
+
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const navDesktopLinks = document.querySelectorAll('#navLinks a');
+    const navMobileLinks = document.querySelectorAll('#mobileMenu a');
+    const heroHeading = document.getElementById('hero-heading');
+    const heroLines = document.querySelectorAll('.hero-line');
+    const heroBadges = document.querySelectorAll('.hero-badge');
+
+    const setLangButtonState = (lang) => {
+      langButtons.forEach((btn) => {
+        const active = btn.dataset.lang === lang;
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        btn.classList.toggle('bg-blue-600', active);
+        btn.classList.toggle('text-white', active);
+        btn.classList.toggle('shadow-md', active);
+      });
+    };
+
+    const setTextByKey = (key, value) => {
+      const el = document.querySelector(`[data-i18n="${key}"]`);
+      if (!el || !value) return;
+      if (/<[a-z][\s\S]*>/i.test(value)) {
+        el.innerHTML = value;
+      } else {
+        el.textContent = value;
+      }
+    };
+
+    const applyLanguage = (lang) => {
+      const locale = lang === 'ar' ? 'ar' : 'en';
+      const t = translations[locale];
+      try {
+        localStorage.setItem('language', locale);
+      } catch (e) {}
+
+      document.documentElement.lang = locale;
+      document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr';
+      document.body.classList.toggle('rtl', locale === 'ar');
+      setLangButtonState(locale);
+
+      const updateNav = (links) => links.forEach((link, idx) => {
+        if (t.nav[idx]) link.textContent = t.nav[idx];
+      });
+      updateNav(navDesktopLinks);
+      updateNav(navMobileLinks);
+      setTextByKey('nav.languageLabel', t.languageLabel);
+
+      if (heroHeading && t.hero.title) heroHeading.innerHTML = t.hero.title;
+      heroLines.forEach((line, idx) => {
+        if (t.hero.lines[idx]) line.innerHTML = t.hero.lines[idx];
+      });
+      heroBadges.forEach((badge, idx) => {
+        if (t.hero.badges[idx]) badge.textContent = t.hero.badges[idx];
+      });
+
+      const setBtnText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el && text) el.textContent = text;
+      };
+      setBtnText('hireBtn', t.hero.ctas.hire);
+      setBtnText('servicesBtn', t.hero.ctas.services);
+      setBtnText('cvBtn', t.hero.ctas.cv);
+
+      setTextByKey('about.heading', t.about.heading);
+      document.querySelectorAll('.about-stat').forEach((stat, idx) => {
+        if (t.about.stats[idx]) stat.textContent = t.about.stats[idx];
+      });
+      document.querySelectorAll('.about-paragraph').forEach((para, idx) => {
+        if (t.about.paragraphs[idx]) para.innerHTML = t.about.paragraphs[idx];
+      });
+
+      setTextByKey('services.heading', t.services.heading);
+      setTextByKey('services.subhead', t.services.subhead);
+      document.querySelectorAll('.value-prop').forEach((item, idx) => {
+        if (t.services.values[idx]) item.textContent = t.services.values[idx];
+      });
+
+      const serviceCards = document.querySelectorAll('#services .service-card');
+      serviceCards.forEach((card, idx) => {
+        const data = t.services.cards[idx];
+        if (!data) return;
+        const title = card.querySelector('h3');
+        const desc = card.querySelector('p');
+        if (title && data.title) title.textContent = data.title;
+        if (desc && data.desc) desc.textContent = data.desc;
+        const bullets = card.querySelectorAll('ul li span:last-child');
+        bullets.forEach((bullet, i) => {
+          if (data.bullets[i]) bullet.textContent = data.bullets[i];
+        });
+      });
+
+      setBtnText('proposalBtn', t.services.ctas.proposal);
+      setBtnText('projectsBtn', t.services.ctas.projects);
+
+      setTextByKey('portfolio.heading', t.portfolio.heading);
+      setTextByKey('skills.heading', t.skills.heading);
+
+      const skillCards = document.querySelectorAll('#skills .skill-card');
+      skillCards.forEach((card, idx) => {
+        const data = t.skills.cards[idx];
+        if (!data) return;
+        const title = card.querySelector('h3');
+        if (title && data.title) title.textContent = data.title;
+        const bullets = card.querySelectorAll('ul li');
+        bullets.forEach((bullet, i) => {
+          if (data.bullets[i]) bullet.textContent = data.bullets[i];
+        });
+      });
+
+      setTextByKey('experience.heading', t.experience.heading);
+      const expArticles = document.querySelectorAll('[data-exp]');
+      expArticles.forEach((article) => {
+        const key = article.dataset.exp;
+        const data = t.experienceCards.find((item) => item.key === key);
+        if (!data) return;
+        const title = article.querySelector('.exp-title');
+        const meta = article.querySelector('.exp-meta');
+        const summary = article.querySelector('.exp-summary');
+        if (title && data.title) title.textContent = data.title;
+        if (meta && data.meta) meta.textContent = data.meta;
+        if (summary && data.summary) summary.textContent = data.summary;
+        const bullets = article.querySelectorAll('li');
+        if (data.bullets && data.bullets.length) {
+          bullets.forEach((li, idx) => {
+            if (data.bullets[idx]) li.innerHTML = data.bullets[idx];
+          });
+        }
+        if (key === 'freelance') {
+          const labels = article.querySelectorAll('.exp-stat-label');
+          const values = article.querySelectorAll('.exp-stat-value');
+          if (data.statsLabels) {
+            labels.forEach((el, i) => {
+              if (data.statsLabels[i]) el.textContent = data.statsLabels[i];
+            });
+          }
+          if (data.statsValues) {
+            values.forEach((el, i) => {
+              if (data.statsValues[i]) el.textContent = data.statsValues[i];
+            });
+          }
+          const cats = article.querySelectorAll('.exp-category');
+          cats.forEach((catEl, idx) => {
+            const catData = data.categories?.[idx];
+            if (!catData) return;
+            const subTitle = catEl.querySelector('.exp-subtitle');
+            const subMeta = catEl.querySelector('.exp-submeta');
+            const subSummary = catEl.querySelector('.exp-subsummary');
+            if (subTitle && catData.title) subTitle.textContent = catData.title;
+            if (subMeta && catData.meta) subMeta.textContent = catData.meta;
+            if (subSummary && catData.summary) subSummary.textContent = catData.summary;
+            const contrib = catEl.querySelectorAll('.exp-contrib li');
+            if (catData.contributions) {
+              contrib.forEach((li, i) => {
+                if (catData.contributions[i]) li.textContent = catData.contributions[i];
+              });
+            }
+            const highlights = catEl.querySelectorAll('.exp-highlights li');
+            if (catData.highlights) {
+              highlights.forEach((li, i) => {
+                if (catData.highlights[i]) li.textContent = catData.highlights[i];
+              });
+            }
+            const badges = catEl.querySelectorAll('.exp-badges li');
+            if (catData.badges) {
+              badges.forEach((li, i) => {
+                if (catData.badges[i]) li.textContent = catData.badges[i];
+              });
+            }
+          });
+        }
+      });
+
+      setTextByKey('certifications.heading', t.certifications.heading);
+      const certCards = document.querySelectorAll('#certifications .cert-card');
+      certCards.forEach((card, idx) => {
+        const data = t.certificationCards[idx];
+        if (!data) return;
+        const title = card.querySelector('h4');
+        if (title && data.title) title.textContent = data.title;
+        const listItems = card.querySelectorAll('li');
+        if (data.items && data.items.length) {
+          listItems.forEach((li, i) => {
+            const item = data.items[i];
+            if (!item) return;
+            const label = li.querySelector('.text-sm');
+            const badge = label ? label.querySelector('span') : null;
+            if (label) {
+              const badgeClass = badge ? badge.className : 'ml-2 align-middle text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300';
+              label.innerHTML = `${item.label}${item.provider ? ` <span class="${badgeClass}">${item.provider}</span>` : ''}`;
+            }
+            const time = li.querySelector('time');
+            if (time && item.year) time.textContent = item.year;
+          });
+        }
+      });
+      setTextByKey('education.heading', t.education.heading);
+      const eduCards = document.querySelectorAll('#education .edu-card');
+      eduCards.forEach((card) => {
+        const key = card.dataset.edu;
+        const data = t.educationCards.find((item) => item.key === key);
+        if (!data) return;
+        const title = card.querySelector('.edu-title');
+        const meta = card.querySelector('.edu-meta');
+        const status = card.querySelector('.edu-status');
+        if (title && data.title) title.textContent = data.title;
+        if (meta && data.meta) meta.textContent = data.meta;
+        if (status && data.status) status.textContent = data.status;
+        const bullets = card.querySelectorAll('.edu-bullets li');
+        if (data.bullets) {
+          bullets.forEach((li, i) => {
+            if (data.bullets[i]) li.textContent = data.bullets[i];
+          });
+        }
+        const tags = card.querySelectorAll('.edu-tags span');
+        if (data.tags) {
+          tags.forEach((tag, i) => {
+            if (data.tags[i]) tag.textContent = data.tags[i];
+          });
+        }
+      });
+      setTextByKey('memberships.heading', t.memberships.heading);
+      setTextByKey('languages.heading', t.languages.heading);
+      setTextByKey('case.heading', t.case.heading);
+      setTextByKey('courses.heading', t.courses.heading);
+      setTextByKey('gallery.heading', t.gallery.heading);
+      setTextByKey('contact.heading', t.contact.heading);
+      setTextByKey('contact.subhead', t.contact.subhead);
+      setTextByKey('footer.copy', t.footer.copy);
+
+      const membershipCards = document.querySelectorAll('#memberships .membership-card');
+      membershipCards.forEach((card, idx) => {
+        const data = t.membershipsCards[idx];
+        if (!data) return;
+        const title = card.querySelector('h4');
+        const badge = card.querySelector('.membership-badge');
+        const label = card.querySelector('.member-label');
+        const year = card.querySelector('.member-year');
+        if (title && data.title) title.textContent = data.title;
+        if (badge && data.badge) badge.textContent = data.badge;
+        if (label && data.label) label.textContent = data.label;
+        if (year && data.year) year.textContent = data.year;
+      });
+
+      const langCards = document.querySelectorAll('.language-card');
+      langCards.forEach((card, idx) => {
+        const data = t.languageCards[idx];
+        if (!data) return;
+        const title = card.querySelector('h4');
+        const level = card.querySelector('p.text-sm');
+        const desc = card.querySelector('p.mt-2');
+        if (title) title.textContent = data.title;
+        if (level) level.textContent = data.level;
+        if (desc) desc.textContent = data.desc;
+      });
+
+      const caseCards = document.querySelectorAll('#case-studies .case-card');
+      caseCards.forEach((card, idx) => {
+        const data = t.case.cards[idx];
+        if (!data) return;
+        const title = card.querySelector('h4');
+        const meta = card.querySelector('p.text-sm');
+        const lines = card.querySelectorAll('.space-y-2 p');
+        if (title && data.title) title.textContent = data.title;
+        if (meta && data.meta) meta.innerHTML = `<strong>${data.meta}</strong>`;
+        lines.forEach((line, i) => {
+          if (data.lines[i]) line.innerHTML = data.lines[i];
+        });
+      });
+
+      const trainingCards = document.querySelectorAll('.training-card');
+      trainingCards.forEach((card, idx) => {
+        const data = t.courses.cards[idx];
+        if (!data) return;
+        const title = card.querySelector('h3');
+        const desc = card.querySelector('p');
+        if (title && data.title) title.textContent = data.title;
+        if (desc && data.desc) desc.textContent = data.desc;
+      });
+    };
+
+    const storedLang = localStorage.getItem('language') || 'en';
+    applyLanguage(storedLang);
+
+    langButtons.forEach((btn) => {
+      btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+    });
+
     // Modal
     const modal = document.getElementById('modal');
     const openModalBtn = document.getElementById('openModal');
     const closeModalBtn = document.getElementById('closeModal');
 
     const showModal = () => {
+      if (!modal) return;
       modal.classList.remove('hidden');
       modal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('overflow-hidden');
     };
 
     const hideModal = () => {
+      if (!modal) return;
       modal.classList.add('hidden');
       modal.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('overflow-hidden');
@@ -2224,15 +3459,13 @@ s
         mobileMenu.classList.toggle('hidden');
       });
     }
-  });
 
-  const mobileMenuLinks = document.querySelectorAll('#mobileMenu a');
-mobileMenuLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.add('hidden');
+    navMobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu) mobileMenu.classList.add('hidden');
+      });
+    });
   });
-});
-
 </script>
 <!-- Chart.js -->
 <!-- Chart.js -->
