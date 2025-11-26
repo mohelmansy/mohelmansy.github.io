@@ -1,0 +1,91 @@
+:root {
+  --light-bg: #f7f9fc;
+  --light-surface: #ffffff;
+  --light-panel: #f1f5f9;
+  --light-text: #0f172a;
+  --light-muted: #475569;
+  --light-border: #e2e8f0;
+  --light-accent: #0f4cc9;
+  --light-accent-2: #0ea5e9;
+  --light-shadow: 0 12px 30px -12px rgba(15, 76, 201, 0.2);
+}
+
+html:not(.dark) {
+  color-scheme: light;
+}
+
+html:not(.dark) body {
+  background: var(--light-bg);
+  color: var(--light-text);
+}
+
+html:not(.dark) header {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--light-border);
+}
+
+html:not(.dark) .service-card,
+html:not(.dark) .skill-card,
+html:not(.dark) .case-card,
+html:not(.dark) .training-card,
+html:not(.dark) .cert-card,
+html:not(.dark) .membership-card,
+html:not(.dark) .language-card,
+html:not(.dark) .exp-category,
+html:not(.dark) .edu-card {
+  background: var(--light-surface) !important;
+  border-color: var(--light-border) !important;
+  box-shadow: var(--light-shadow);
+}
+
+html:not(.dark) section {
+  background: transparent;
+}
+
+html:not(.dark) p,
+html:not(.dark) li,
+html:not(.dark) span,
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) h5,
+html:not(.dark) h6 {
+  color: var(--light-text);
+}
+
+html:not(.dark) .text-gray-600,
+html:not(.dark) .text-gray-700,
+html:not(.dark) .text-gray-800,
+html:not(.dark) .text-gray-900 {
+  color: var(--light-muted) !important;
+}
+
+html:not(.dark) .bg-gray-100,
+html:not(.dark) .bg-gray-200,
+html:not(.dark) .bg-gray-50 {
+  background-color: var(--light-panel) !important;
+}
+
+html:not(.dark) a:hover {
+  color: var(--light-accent);
+}
+
+html:not(.dark) .cta-primary {
+  background: linear-gradient(135deg, var(--light-accent), var(--light-accent-2));
+  color: #fff;
+  border: none;
+  box-shadow: var(--light-shadow);
+}
+
+html:not(.dark) .cta-secondary {
+  border-color: var(--light-border);
+  color: var(--light-text);
+  background: var(--light-surface);
+}
+
+html:not(.dark) footer {
+  background: var(--light-surface);
+  color: var(--light-muted);
+}
