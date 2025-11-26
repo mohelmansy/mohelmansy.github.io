@@ -58,6 +58,24 @@
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
 <style>
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #111827;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  .dark body {
+    background-color: #0f172a;
+    color: #f9fafb;
+  }
+
   .contact-icon {
     @apply w-14 h-14 flex items-center justify-center text-white rounded-full shadow-lg
            transition-all duration-300 transform hover:scale-110 focus:outline-none;
