@@ -31,13 +31,29 @@
     <title>Mohamed El-Mansy | Consultant & Trainer</title>
     <script>
       (function() {
+        const root = document.documentElement;
+        const body = document.body;
+        const setLight = () => {
+          root.classList.remove('dark');
+          body && body.classList.remove('dark');
+          root.style.colorScheme = 'light';
+        };
+        const setDark = () => {
+          root.classList.add('dark');
+          body && body.classList.add('dark');
+          root.style.colorScheme = 'dark';
+        };
         try {
           const stored = localStorage.getItem('theme');
           if (stored === 'dark') {
-            document.documentElement.classList.add('dark');
-            document.body && document.body.classList.add('dark');
+            setDark();
+          } else {
+            setLight();
+            localStorage.setItem('theme', 'light');
           }
-        } catch (e) {}
+        } catch (e) {
+          setLight();
+        }
       })();
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -3440,17 +3456,21 @@
     };
 
     try {
-      applyTheme(localStorage.getItem('theme') === 'dark');
+      const storedTheme = localStorage.getItem('theme');
+      const initialDark = storedTheme ? storedTheme === 'dark' : (html.classList.contains('dark') || body.classList.contains('dark'));
+      applyTheme(initialDark);
     } catch (e) {
       console.warn("LocalStorage blocked.");
+      applyTheme(html.classList.contains('dark') || body.classList.contains('dark'));
     }
 
     if (toggle) {
       toggle.addEventListener('click', () => {
-        const isDark = !html.classList.contains('dark');
-        applyTheme(isDark);
+        const currentlyDark = html.classList.contains('dark') || body.classList.contains('dark');
+        const next = !currentlyDark;
+        applyTheme(next);
         try {
-          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          localStorage.setItem('theme', next ? 'dark' : 'light');
         } catch (e) {}
       });
     }
