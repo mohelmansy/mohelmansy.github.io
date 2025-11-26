@@ -35,6 +35,7 @@
           const stored = localStorage.getItem('theme');
           if (stored === 'dark') {
             document.documentElement.classList.add('dark');
+            document.body && document.body.classList.add('dark');
           }
         } catch (e) {}
       })();
@@ -3426,11 +3427,13 @@
 
     // Dark mode
     const html = document.documentElement;
+    const body = document.body;
     const toggle = document.getElementById('darkToggle');
     const icon = document.getElementById('themeIcon');
 
     const applyTheme = (isDark) => {
       html.classList[isDark ? 'add' : 'remove']('dark');
+      if (body) body.classList[isDark ? 'add' : 'remove']('dark');
       if (icon) icon.textContent = isDark ? '☀️' : '🌙';
     };
 
